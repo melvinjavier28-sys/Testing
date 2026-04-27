@@ -1,0 +1,79 @@
+[
+  {
+    "id": "restaurants",
+    "slug": "restaurants",
+    "title": "Restaurants & QSR",
+    "shortDescription": "Fast processing. Zero setup fees. Instant approval.",
+    "fullDescription": "Whether you're a fine dining establishment, quick-service restaurant, or food truck, we have payment solutions that keep transactions fast and secure.",
+    "painPoints": [
+      "Need fast payment processing during peak hours",
+      "Multiple payment methods required (cards, digital wallets)",
+      "PCI compliance concerns"
+    ],
+    "solutions": [
+      "High-speed POS terminals",
+      "Support for contactless payments",
+      "Integrated EMV technology"
+    ],
+    "recommendedProducts": ["pos-terminals", "mobile-payments"],
+    "testimonial": {
+      "text": "We switched to National e-Payment and cut payment processing time in half. Our customers are happier, and so are we.",
+      "author": "Sarah Chen",
+      "company": "The Hungry Fork Restaurant"
+    }
+  },
+  {
+    "id": "retail",
+    "slug": "retail",
+    "title": "Retail & E-commerce",
+    "shortDescription": "Omnichannel. Secure. Flexible payment options.",
+    "fullDescription": "From brick-and-mortar to online stores, our payment solutions support all your retail channels seamlessly.",
+    "painPoints": [
+      "Managing payments across multiple channels",
+      "Inventory integration needs",
+      "Customer data security"
+    ],
+    "solutions": [
+      "Omnichannel payment processing",
+      "Inventory management integration",
+      "Advanced fraud detection"
+    ],
+    "recommendedProducts": ["pos-terminals", "mobile-payments"]
+  },
+  {
+    "id": "grocery",
+    "slug": "grocery",
+    "title": "Grocery & Convenience",
+    "shortDescription": "High transaction volume. Competitive rates. 24/7 support.",
+    "fullDescription": "Handle high-volume transactions with confidence. We support grocery stores and convenience stores of all sizes.",
+    "painPoints": [
+      "High volume of daily transactions",
+      "Need for self-checkout solutions",
+      "Extended hours of operation"
+    ],
+    "solutions": [
+      "Scalable transaction processing",
+      "Self-checkout terminal support",
+      "24/7 dedicated support"
+    ],
+    "recommendedProducts": ["pos-terminals", "atm-machines"]
+  },
+  {
+    "id": "lodging",
+    "slug": "lodging",
+    "title": "Lodging & Hospitality",
+    "shortDescription": "Integrated. Reliable. Enterprise-grade.",
+    "fullDescription": "Hotels, motels, and hospitality businesses need reliable payment solutions. We deliver enterprise-grade processing.",
+    "painPoints": [
+      "Need for room charges and deposits",
+      "Guest folio integration",
+      "Security for stored payment methods"
+    ],
+    "solutions": [
+      "Integrated hospitality payment systems",
+      "Secure guest folio management",
+      "EMV and tokenization support"
+    ],
+    "recommendedProducts": ["pos-terminals"]
+  }
+]

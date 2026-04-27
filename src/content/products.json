@@ -1,0 +1,55 @@
+[
+  {
+    "id": "pos-terminals",
+    "slug": "pos-terminals",
+    "title": "POS Terminals",
+    "category": "hardware",
+    "description": "Modern, reliable point-of-sale terminals for every business size.",
+    "features": [
+      "EMV chip card processing",
+      "Contactless payment support",
+      "Built-in receipt printer",
+      "Multiple connectivity options",
+      "Touchscreen interface"
+    ],
+    "specifications": {
+      "Display": "5-inch color touchscreen",
+      "Connectivity": "Ethernet, WiFi, 4G",
+      "Certifications": "EMV Level 1, PCI DSS",
+      "Languages": "Multiple language support"
+    },
+    "pricing": "Custom quotes available",
+    "industries": ["restaurants", "retail", "grocery", "lodging"]
+  },
+  {
+    "id": "atm-machines",
+    "slug": "atm-machines",
+    "title": "ATM Machines",
+    "category": "hardware",
+    "description": "ATM solutions from leading manufacturers: Triton, Nautilus Hyosung, Genmega, and more.",
+    "features": [
+      "Multiple brand options",
+      "Cash dispensing",
+      "Balance inquiry",
+      "Withdrawal functionality",
+      "Vault monitoring"
+    ],
+    "brands": ["Triton", "Nautilus Hyosung", "Genmega", "Hantle"],
+    "industries": ["grocery", "retail", "restaurants"]
+  },
+  {
+    "id": "mobile-payments",
+    "slug": "mobile-payments",
+    "title": "Mobile Payments",
+    "category": "software",
+    "description": "Accept payments anywhere, anytime with our mobile payment solutions.",
+    "features": [
+      "Accept anywhere",
+      "Instant settlement",
+      "Multiple payment methods",
+      "Real-time reporting",
+      "Mobile-optimized interface"
+    ],
+    "industries": ["restaurants", "retail", "lodging"]
+  }
+]
