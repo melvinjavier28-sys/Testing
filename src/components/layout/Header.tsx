@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Button from '@/components/common/Button';
-import Container from '@/components/common/Container';
+import Button from '@/src/components/common/Button';
+import Container from '@/src/components/common/Container';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

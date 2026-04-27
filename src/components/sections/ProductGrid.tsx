@@ -1,5 +1,5 @@
-import Container from '@/components/common/Container';
-import Section from '@/components/common/Section';
+import Container from '@/src/components/common/Container';
+import Section from '@/src/components/common/Section';
 
 interface Product {
   id: string;

@@ -1,5 +1,5 @@
-import Button from '@/components/common/Button';
-import Container from '@/components/common/Container';
+import Button from '@/src/components/common/Button';
+import Container from '@/src/components/common/Container';
 
 interface HeroProps {
   title: string;

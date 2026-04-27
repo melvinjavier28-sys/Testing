@@ -1,5 +1,5 @@
-import industriesData from '@/content/industries.json';
-import { Industry } from '@/lib/types';
+import industriesData from '@/src/content/industries.json';
+import { Industry } from '@/src/lib/types';
 
 export const industries: Industry[] = industriesData as Industry[];
 

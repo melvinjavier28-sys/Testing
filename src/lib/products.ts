@@ -1,5 +1,5 @@
-import productsData from '@/content/products.json';
-import { Product } from '@/lib/types';
+import productsData from '@/src/content/products.json';
+import { Product } from '@/src/lib/types';
 
 export const products: Product[] = productsData as Product[];
 

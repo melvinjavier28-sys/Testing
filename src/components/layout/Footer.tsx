@@ -1,4 +1,4 @@
-import Container from '@/components/common/Container';
+import Container from '@/src/components/common/Container';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
