@@ -321,50 +321,84 @@ export default function Home() {
       </section>
 
       {/* ── Stats ────────────────────────────────────────── */}
-      <section className="py-16 bg-navy text-white">
+      <section className="py-16 bg-light-bg">
         <Container>
           <RevealSection>
             <SectionHeading
               title="By the Numbers"
               subtitle="Earned from thousands of merchants who trust us with their payments."
-              dark={true}
               className="mb-10"
             />
           </RevealSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Stat 1 */}
             <RevealSection delay={0}>
-              <div>
-                <div className="text-5xl font-bold text-teal mb-2">
-                  <AnimatedCounter value={95} suffix="%" />
+              <div className="relative overflow-hidden bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 flex items-center justify-center text-[80px] font-black leading-none select-none pointer-events-none"
+                  style={{ color: 'rgba(15,58,95,0.04)' }}
+                >
+                  95%
+                </span>
+                <div className="relative z-10">
+                  <div className="text-4xl font-black text-navy mb-2">
+                    <AnimatedCounter value={95} suffix="%" />
+                  </div>
+                  <div className="text-sm text-gray-500 uppercase tracking-wide">Approval Rate</div>
                 </div>
-                <p className="text-white font-semibold mb-1">Approval Rate</p>
-                <p className="text-gray-400 text-sm">
-                  We underwrite across dozens of industries and business histories.
-                </p>
               </div>
             </RevealSection>
 
             {/* Stat 2 */}
-            <RevealSection delay={150}>
-              <div>
-                <div className="text-5xl font-bold text-teal mb-2">24/7</div>
-                <p className="text-white font-semibold mb-1">Live Support</p>
-                <p className="text-gray-400 text-sm">
-                  Real specialists answer the phone any hour — including weekends and holidays.
-                </p>
+            <RevealSection delay={100}>
+              <div className="relative overflow-hidden bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 flex items-center justify-center text-[80px] font-black leading-none select-none pointer-events-none"
+                  style={{ color: 'rgba(15,58,95,0.04)' }}
+                >
+                  24/7
+                </span>
+                <div className="relative z-10">
+                  <div className="text-4xl font-black text-navy mb-2">24/7</div>
+                  <div className="text-sm text-gray-500 uppercase tracking-wide">Live Support</div>
+                </div>
               </div>
             </RevealSection>
 
             {/* Stat 3 */}
+            <RevealSection delay={200}>
+              <div className="relative overflow-hidden bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 flex items-center justify-center text-[80px] font-black leading-none select-none pointer-events-none"
+                  style={{ color: 'rgba(15,58,95,0.04)' }}
+                >
+                  $0
+                </span>
+                <div className="relative z-10">
+                  <div className="text-4xl font-black text-navy mb-2">$0</div>
+                  <div className="text-sm text-gray-500 uppercase tracking-wide">Setup Cost</div>
+                </div>
+              </div>
+            </RevealSection>
+
+            {/* Stat 4 */}
             <RevealSection delay={300}>
-              <div>
-                <div className="text-5xl font-bold text-teal mb-2">30-Day</div>
-                <p className="text-white font-semibold mb-1">Risk-Free Trial</p>
-                <p className="text-gray-400 text-sm">
-                  Cancel within 30 days for any reason — zero penalty, zero question.
-                </p>
+              <div className="relative overflow-hidden bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 flex items-center justify-center text-[80px] font-black leading-none select-none pointer-events-none"
+                  style={{ color: 'rgba(15,58,95,0.04)' }}
+                >
+                  30
+                </span>
+                <div className="relative z-10">
+                  <div className="text-4xl font-black text-navy mb-2">30</div>
+                  <div className="text-sm text-gray-500 uppercase tracking-wide">Day Risk-Free Trial</div>
+                </div>
               </div>
             </RevealSection>
           </div>
