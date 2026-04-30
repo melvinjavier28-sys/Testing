@@ -250,12 +250,21 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {differentiators.map(({ Icon, heading, body }, i) => (
               <RevealSection key={heading} delay={i * 100}>
-                <div className="relative pl-0">
-                  <div className="w-12 h-12 rounded-2xl bg-teal/10 flex items-center justify-center mb-5">
-                    <Icon className="w-6 h-6 text-teal" strokeWidth={1.5} />
+                <div className="relative overflow-hidden pl-0">
+                  <span
+                    aria-hidden="true"
+                    className="absolute top-0 left-0 text-[56px] font-black leading-none select-none pointer-events-none"
+                    style={{ color: 'rgba(189,229,37,0.22)' }}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div className="relative z-[1]">
+                    <div className="w-12 h-12 rounded-2xl bg-teal/10 flex items-center justify-center mb-5">
+                      <Icon className="w-6 h-6 text-teal" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-lg font-bold text-navy mb-2">{heading}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{body}</p>
                   </div>
-                  <h3 className="text-lg font-bold text-navy mb-2">{heading}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{body}</p>
                 </div>
               </RevealSection>
             ))}
