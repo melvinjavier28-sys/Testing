@@ -181,8 +181,6 @@ export default function Home() {
         </Container>
       </section>
 
-      <DiagonalCut from="navy" to="light" />
-
       {/* ── Banking partners bar ──────────────────────────── */}
       <div className="bg-navy-light border-t border-white/10 py-4">
         <Container>
@@ -203,6 +201,8 @@ export default function Home() {
           </div>
         </Container>
       </div>
+
+      <DiagonalCut from="navy-light" to="light" />
 
       {/* ── Industries ───────────────────────────────────── */}
       <section id="services" className="py-16 md:py-20 bg-light-bg">
