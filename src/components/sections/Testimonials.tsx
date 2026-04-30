@@ -1,6 +1,17 @@
 import SectionHeading from '@/src/components/common/SectionHeading';
 
-const testimonials = [
+type AvatarColor = 'bg-navy' | 'bg-navy-light' | 'bg-teal-dark';
+
+interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+  location: string;
+  initials: string;
+  color: AvatarColor;
+}
+
+const testimonials: Testimonial[] = [
   {
     quote:
       'Switching to National e-Payment cut my monthly processing fees by over 30%. I applied on a Tuesday and was processing cards by end of business the same day.',
@@ -51,7 +62,7 @@ export default function Testimonials() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
           {testimonials.map(({ quote, name, role, location, initials, color }) => (
-            <div
+            <figure
               key={name}
               className="bg-white rounded-xl border border-gray-200 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg p-6 flex flex-col"
               style={{ borderTop: '3px solid #BDE525' }}
@@ -77,13 +88,13 @@ export default function Testimonials() {
 
               {/* Quote */}
               <blockquote className="text-sm text-gray-700 leading-relaxed flex-1 mb-5">
-                &ldquo;{quote}&rdquo;
+                {quote}
               </blockquote>
 
               <hr className="border-0 border-t border-gray-100 mb-5" />
 
               {/* Attribution */}
-              <div className="flex items-center gap-3">
+              <figcaption className="flex items-center gap-3">
                 <div
                   className={`w-10 h-10 rounded-full ${color} flex items-center justify-center text-xs font-bold text-white flex-shrink-0`}
                   aria-hidden="true"
@@ -96,8 +107,8 @@ export default function Testimonials() {
                     {role} · {location}
                   </p>
                 </div>
-              </div>
-            </div>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>
