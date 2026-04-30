@@ -211,7 +211,7 @@ export default function Home() {
             <SectionHeading
               title="Solutions for Every Industry"
               subtitle="We understand your business — because we built our platform around it."
-              className="mb-10 text-center"
+              className="mb-10"
             />
           </RevealSection>
 
@@ -243,7 +243,7 @@ export default function Home() {
             <SectionHeading
               title="Why Merchants Switch to Us"
               subtitle="Not marketing copy — these are the three things we hear most often from new customers."
-              className="mb-12 text-center"
+              className="mb-12"
             />
           </RevealSection>
 
@@ -273,7 +273,7 @@ export default function Home() {
             <SectionHeading
               title="Hardware & Software Solutions"
               subtitle="Everything you need to accept payments — certified, supported, and shipped ready to go."
-              className="mb-10 text-center"
+              className="mb-10"
             />
           </RevealSection>
 
@@ -319,7 +319,7 @@ export default function Home() {
               title="By the Numbers"
               subtitle="Earned from thousands of merchants who trust us with their payments."
               dark={true}
-              className="mb-10 text-center"
+              className="mb-10"
             />
           </RevealSection>
 
