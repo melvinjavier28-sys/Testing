@@ -5,6 +5,7 @@ import RevealSection from '@/src/components/common/RevealSection';
 import AnimatedCounter from '@/src/components/common/AnimatedCounter';
 import Testimonials from '@/src/components/sections/Testimonials';
 import DiagonalCut from '@/src/components/common/DiagonalCut';
+import SectionHeading from '@/src/components/common/SectionHeading';
 import {
   ShoppingCart,
   UtensilsCrossed,
@@ -207,14 +208,11 @@ export default function Home() {
       <section id="services" className="py-16 md:py-20 bg-light-bg">
         <Container>
           <RevealSection>
-            <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
-                Solutions for Every Industry
-              </h2>
-              <p className="text-gray-500 max-w-xl mx-auto">
-                We understand your business — because we built our platform around it.
-              </p>
-            </div>
+            <SectionHeading
+              title="Solutions for Every Industry"
+              subtitle="We understand your business — because we built our platform around it."
+              className="mb-10 text-center"
+            />
           </RevealSection>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -242,14 +240,11 @@ export default function Home() {
       <section className="py-16 md:py-20 bg-white">
         <Container>
           <RevealSection>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
-                Why Merchants Switch to Us
-              </h2>
-              <p className="text-gray-500 max-w-xl mx-auto">
-                Not marketing copy — these are the three things we hear most often from new customers.
-              </p>
-            </div>
+            <SectionHeading
+              title="Why Merchants Switch to Us"
+              subtitle="Not marketing copy — these are the three things we hear most often from new customers."
+              className="mb-12 text-center"
+            />
           </RevealSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -275,14 +270,11 @@ export default function Home() {
       <section id="products" className="py-16 md:py-20 bg-light-bg">
         <Container>
           <RevealSection>
-            <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
-                Hardware &amp; Software Solutions
-              </h2>
-              <p className="text-gray-500 max-w-xl mx-auto">
-                Everything you need to accept payments — certified, supported, and shipped ready to go.
-              </p>
-            </div>
+            <SectionHeading
+              title="Hardware & Software Solutions"
+              subtitle="Everything you need to accept payments — certified, supported, and shipped ready to go."
+              className="mb-10 text-center"
+            />
           </RevealSection>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -322,9 +314,13 @@ export default function Home() {
       {/* ── Stats ────────────────────────────────────────── */}
       <section className="py-16 bg-navy text-white">
         <Container>
-          <RevealSection className="text-center mb-10">
-            <h2 className="text-3xl font-bold mb-2">By the Numbers</h2>
-            <p className="text-gray-400">Earned from thousands of merchants who trust us with their payments.</p>
+          <RevealSection>
+            <SectionHeading
+              title="By the Numbers"
+              subtitle="Earned from thousands of merchants who trust us with their payments."
+              dark={true}
+              className="mb-10 text-center"
+            />
           </RevealSection>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
