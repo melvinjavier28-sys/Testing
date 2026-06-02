@@ -1,4 +1,7 @@
 import SectionHeading from '@/src/components/common/SectionHeading';
+import RevealSection from '@/src/components/common/RevealSection';
+import Container from '@/src/components/common/Container';
+import { Quote, Star } from 'lucide-react';
 
 type AvatarColor = 'bg-navy' | 'bg-navy-light' | 'bg-teal-dark';
 
@@ -43,75 +46,60 @@ const testimonials: Testimonial[] = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-light-bg relative overflow-hidden">
-      {/* Ghost star decoration */}
-      <span
+    <section className="py-20 md:py-24 bg-surface relative overflow-hidden">
+      {/* Ghost quote decoration */}
+      <Quote
         aria-hidden="true"
-        className="absolute bottom-0 right-0 translate-x-4 translate-y-4 text-[160px] font-black leading-none select-none pointer-events-none"
-        style={{ color: 'rgba(15,58,95,0.04)' }}
-      >
-        ★
-      </span>
+        className="absolute -bottom-10 right-0 h-72 w-72 text-navy/[0.03] -scale-x-100"
+        strokeWidth={1}
+      />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title="Merchants Tell It Better Than We Do"
-          subtitle="Real business owners. Real results."
-          className="mb-10"
-        />
+      <Container>
+        <RevealSection>
+          <SectionHeading
+            eyebrow="Customer Stories"
+            title="Merchants Tell It Better Than We Do"
+            subtitle="Real business owners. Real results."
+            className="mb-12"
+          />
+        </RevealSection>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
-          {testimonials.map(({ quote, name, role, location, initials, color }) => (
-            <figure
-              key={name}
-              className="bg-white rounded-xl border border-gray-200 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg p-6 flex flex-col"
-              style={{ borderTop: '3px solid #BDE525' }}
-            >
-              {/* Decorative quote mark */}
-              <span
-                aria-hidden="true"
-                className="select-none mb-2 block"
-                style={{
-                  fontSize: '56px',
-                  lineHeight: 0.8,
-                  fontFamily: 'Georgia, serif',
-                  color: 'rgba(189,229,37,0.35)',
-                }}
-              >
-                &ldquo;
-              </span>
-
-              {/* Stars */}
-              <div className="text-teal text-sm mb-3" aria-label="5 out of 5 stars">
-                <span aria-hidden="true">★★★★★</span>
-              </div>
-
-              {/* Quote */}
-              <blockquote className="text-sm text-gray-700 leading-relaxed flex-1 mb-5">
-                {quote}
-              </blockquote>
-
-              <hr className="border-0 border-t border-gray-100 mb-5" />
-
-              {/* Attribution */}
-              <figcaption className="flex items-center gap-3">
-                <div
-                  className={`w-10 h-10 rounded-full ${color} flex items-center justify-center text-xs font-bold text-white flex-shrink-0`}
-                  aria-hidden="true"
-                >
-                  {initials}
+          {testimonials.map(({ quote, name, role, location, initials, color }, i) => (
+            <RevealSection key={name} delay={i * 100}>
+              <figure className="card-lift border-glow group relative flex h-full flex-col rounded-card border border-gray-200/80 bg-white p-7">
+                {/* Stars */}
+                <div className="mb-4 flex gap-0.5 text-lime" aria-label="5 out of 5 stars">
+                  {Array.from({ length: 5 }).map((_, s) => (
+                    <Star key={s} className="h-4 w-4 fill-current" strokeWidth={0} />
+                  ))}
                 </div>
-                <div>
-                  <p className="text-sm font-bold text-navy">{name}</p>
-                  <p className="text-xs text-gray-400 mt-0.5">
-                    {role} · {location}
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
+
+                {/* Quote */}
+                <blockquote className="relative flex-1 text-[15px] leading-relaxed text-slate">
+                  {quote}
+                </blockquote>
+
+                <hr className="my-6 border-0 border-t border-gray-100" />
+
+                {/* Attribution */}
+                <figcaption className="flex items-center gap-3">
+                  <div
+                    className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ${color}`}
+                    aria-hidden="true"
+                  >
+                    {initials}
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-navy">{name}</p>
+                    <p className="mt-0.5 text-xs text-muted">{role} · {location}</p>
+                  </div>
+                </figcaption>
+              </figure>
+            </RevealSection>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -6,6 +6,8 @@ import AnimatedCounter from '@/src/components/common/AnimatedCounter';
 import Testimonials from '@/src/components/sections/Testimonials';
 import DiagonalCut from '@/src/components/common/DiagonalCut';
 import SectionHeading from '@/src/components/common/SectionHeading';
+import Marquee from '@/src/components/common/Marquee';
+import PaymentVisual from '@/src/components/sections/PaymentVisual';
 import {
   ShoppingCart,
   UtensilsCrossed,
@@ -19,6 +21,7 @@ import {
   Wifi,
   Printer,
   ArrowRight,
+  ChevronDown,
   Check,
   Shield,
   Clock,
@@ -67,168 +70,173 @@ const differentiators = [
 ];
 
 const bankPartners = ['Elavon (U.S. Bancorp)', 'Wells Fargo Bank N.A.', 'Esquire Bank N.A.', 'Commercial Bank of CA'];
+const certs = ['PCI DSS', 'EMV Level 1 & 2', 'Fiserv Partner', 'Clover Partner', 'AMEX Certified'];
+const heroStats = [
+  { value: '95%', label: 'Approval Rate' },
+  { value: '24/7', label: 'Live Support' },
+  { value: 'Free', label: 'Setup & Terminal' },
+  { value: '30-Day', label: 'Risk-Free Trial' },
+];
+const valueProps = [
+  'Free merchant account',
+  'Free terminal or software',
+  '24/7 customer support',
+  'Instant approval decision',
+];
 
 /* ── Page ───────────────────────────────────────────────── */
 export default function Home() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-navy text-white">
-        {/* Dot-grid texture */}
-        <svg
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full pointer-events-none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <pattern id="dot-grid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-              <circle cx="1.5" cy="1.5" r="1.5" fill="#BDE525" fillOpacity="0.06" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#dot-grid)" />
-        </svg>
-
-        {/* Ghost word */}
-        <span
-          aria-hidden="true"
-          className="absolute bottom-16 right-8 text-[180px] font-black leading-none select-none pointer-events-none hidden lg:block"
-          style={{ color: 'rgba(189,229,37,0.07)' }}
-        >
-          FREE
-        </span>
+      <section className="premium-hero relative overflow-hidden text-white">
+        {/* Aurora blobs */}
+        <div aria-hidden="true" className="aurora-blob animate-aurora -left-20 top-0 h-80 w-80" style={{ background: 'rgba(159,232,112,0.28)' }} />
+        <div aria-hidden="true" className="aurora-blob animate-aurora right-0 top-24 h-96 w-96" style={{ background: 'rgba(36,123,184,0.35)', animationDuration: '24s' }} />
+        {/* Grid texture */}
+        <div aria-hidden="true" className="hero-grid absolute inset-0" />
 
         <Container>
-          <div className="pt-16 md:pt-24 pb-10 md:pb-14 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left: logo showcase */}
-            <div className="hidden lg:flex items-center justify-center">
-              <div className="relative flex items-center justify-center p-10">
-                {/* Lime glow behind the logo */}
-                <div className="absolute inset-0 rounded-full bg-teal/20 blur-3xl" />
-                <Image
-                  src="/logo.png"
-                  alt="National e-Payment"
-                  width={1184}
-                  height={383}
-                  className="relative h-96 w-auto object-contain"
-                  style={{ filter: 'drop-shadow(0 4px 24px rgba(189,229,37,0.45)) drop-shadow(0 1px 6px rgba(255,255,255,0.25))' }}
-                  priority
-                  unoptimized
-                />
+          <div className="relative pt-5 pb-7 md:pt-7 md:pb-8">
+            {/* Brand crown — centered above the headline */}
+            <div className="flex flex-col items-center text-center">
+              <div className="relative mb-4">
+                <div aria-hidden="true" className="absolute -inset-6 rounded-[2.25rem] bg-lime/25 blur-2xl" />
+                <div className="relative rounded-2xl bg-white/95 px-7 py-5 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.6)] ring-1 ring-white/60 sm:px-9">
+                  <Image
+                    src="/logo.png"
+                    alt="National e-Payment"
+                    width={1184}
+                    height={383}
+                    className="h-12 w-auto object-contain sm:h-16"
+                    priority
+                    unoptimized
+                  />
+                </div>
               </div>
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-lime">
+                <span className="pulse-dot relative inline-block h-2 w-2 rounded-full bg-lime text-lime" />
+                Registered MSP/ISO · Serving merchants nationwide
+              </span>
             </div>
 
-            {/* Right: copy */}
-            <div>
-              <p className="text-teal text-sm font-semibold tracking-widest uppercase mb-4">
-                Registered MSP/ISO · Serving merchants nationwide
-              </p>
-              <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.1] mb-5">
-                Payment Solutions<br />
-                <span className="text-teal">Built for Your Business</span>
-              </h1>
-              <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-lg">
-                From credit card processing to ATMs, gift cards to check processing —
-                National e-Payment delivers everything your business needs in one
-                trusted, registered ecosystem.
-              </p>
+            {/* Body: copy + animated dashboard side-by-side */}
+            <div className="mt-7 grid grid-cols-1 items-center gap-10 lg:mt-8 lg:grid-cols-2">
+              <div>
+                <h1 className="mb-4 text-[2.3rem] font-bold leading-[1.05] md:text-[2.8rem] lg:text-[3.05rem]">
+                  Payment solutions
+                  <br />
+                  <span className="text-gradient-lime">built for your business</span>
+                </h1>
 
-              {/* Value props */}
-              <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 mb-9 text-sm">
-                {[
-                  'Free merchant account',
-                  'Free terminal or software',
-                  '24/7 customer support',
-                  'Instant approval decision',
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-gray-200">
-                    <Check className="w-4 h-4 text-teal shrink-0" strokeWidth={2.5} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+                <p className="mb-6 max-w-lg text-base leading-relaxed text-white/70 md:text-lg">
+                  From credit card processing to ATMs, gift cards to check processing —
+                  everything your business needs in one trusted, registered ecosystem.
+                </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="/signup"
-                  className="bg-teal text-navy font-bold px-8 py-4 rounded-lg hover:bg-teal-dark transition-colors text-center text-base"
-                >
-                  Get Started Free
-                </a>
-                <a
-                  href="tel:+18664369022"
-                  className="border-2 border-white/40 text-white font-semibold px-8 py-4 rounded-lg hover:border-white hover:bg-white/5 transition-colors text-center text-base"
-                >
-                  Call (866) 436-9022
-                </a>
+                <ul className="mb-7 grid max-w-lg grid-cols-2 gap-x-6 gap-y-2.5 text-sm">
+                  {valueProps.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-white/85">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime/20">
+                        <Check className="h-3.5 w-3.5 text-lime" strokeWidth={3} />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-col gap-4 sm:flex-row">
+                  <a
+                    href="/signup"
+                    className="btn-shine relative inline-flex items-center justify-center gap-2 rounded-full bg-lime px-8 py-4 text-base font-bold text-navy shadow-[0_12px_34px_-8px_rgba(159,232,112,0.85)] transition-transform hover:-translate-y-0.5"
+                  >
+                    Get Started Free
+                    <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                  </a>
+                  <a
+                    href="tel:+18664369022"
+                    className="inline-flex items-center justify-center rounded-full border-2 border-white/20 px-8 py-4 text-base font-semibold text-white transition-colors hover:border-lime hover:bg-lime/10"
+                  >
+                    Call (866) 436-9022
+                  </a>
+                </div>
+              </div>
+
+              {/* Right: animated payment dashboard */}
+              <div className="hidden lg:block">
+                <PaymentVisual />
               </div>
             </div>
           </div>
 
           {/* Stat strip */}
-          <div className="relative z-10 mt-10 grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 rounded-xl overflow-hidden">
-            {[
-              { value: '95%', label: 'Approval Rate' },
-              { value: '24/7', label: 'Live Support' },
-              { value: 'Free', label: 'Setup & Terminal' },
-              { value: '30-Day', label: 'Risk-Free Trial' },
-            ].map(({ value, label }) => (
-              <div key={label} className="bg-navy-light/80 px-6 py-5 text-center">
-                <div className="text-2xl font-black text-teal">{value}</div>
-                <div className="text-xs text-gray-300 mt-1 uppercase tracking-wide">{label}</div>
+          <div className="relative z-10 mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-4">
+            {heroStats.map(({ value, label }) => (
+              <div key={label} className="bg-white/[0.06] px-6 py-4 text-center backdrop-blur-sm transition-colors hover:bg-white/[0.1]">
+                <div className="font-display text-3xl font-bold text-lime">{value}</div>
+                <div className="mt-1 text-xs uppercase tracking-wide text-white/55">{label}</div>
               </div>
             ))}
+          </div>
+
+          {/* Banking partners marquee */}
+          <div className="relative z-10 mt-6 pb-2">
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
+              <p className="shrink-0 text-xs uppercase tracking-wider text-white/40">Registered with</p>
+              <Marquee
+                className="w-full"
+                duration={26}
+                items={bankPartners.map((p) => (
+                  <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-1.5 text-xs font-medium text-white/65">
+                    {p}
+                  </span>
+                ))}
+              />
+            </div>
+          </div>
+
+          {/* Scroll cue */}
+          <div className="relative z-10 flex justify-center pb-5">
+            <a
+              href="#services"
+              aria-label="Scroll down to explore"
+              className="group flex flex-col items-center gap-1.5 text-white/55 transition-colors hover:text-lime"
+            >
+              <span className="text-[11px] font-medium uppercase tracking-[0.2em]">Explore</span>
+              <ChevronDown className="h-5 w-5 animate-scroll-cue" strokeWidth={2} />
+            </a>
           </div>
         </Container>
       </section>
 
-      {/* ── Banking partners bar ──────────────────────────── */}
-      <div className="bg-navy-light border-t border-white/10 py-4">
-        <Container>
-          <div className="flex flex-col sm:flex-row items-center gap-3 justify-center text-center">
-            <p className="text-gray-400 text-xs uppercase tracking-wider shrink-0">
-              Registered with
-            </p>
-            <div className="flex flex-wrap justify-center gap-2">
-              {bankPartners.map((p) => (
-                <span
-                  key={p}
-                  className="bg-navy/60 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full"
-                >
-                  {p}
-                </span>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </div>
-
       <DiagonalCut from="navy-light" to="light" />
 
       {/* ── Industries ───────────────────────────────────── */}
-      <section id="services" className="py-16 md:py-20 bg-light-bg">
+      <section id="services" className="scroll-mt-24 bg-surface py-20 md:py-24">
         <Container>
           <RevealSection>
             <SectionHeading
+              eyebrow="Who We Serve"
               title="Solutions for Every Industry"
               subtitle="We understand your business — because we built our platform around it."
-              className="mb-10"
+              className="mb-12"
             />
           </RevealSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 md:grid-cols-3">
             {industries.map(({ title, href, Icon }, i) => (
-              <RevealSection key={title} delay={i * 60}>
+              <RevealSection key={title + i} delay={i * 50}>
                 <a
                   href={href}
-                  className="card-lift flex items-center gap-4 bg-white px-5 py-4 rounded-xl border border-gray-200 hover:border-teal group"
+                  className="card-lift border-glow group flex items-center gap-4 rounded-card border border-gray-200/70 bg-white px-5 py-4"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-navy/5 flex items-center justify-center shrink-0 group-hover:bg-teal/10 transition-colors">
-                    <Icon className="w-5 h-5 text-navy group-hover:text-teal transition-colors" strokeWidth={1.5} />
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy/[0.05] transition-colors group-hover:bg-lime/15">
+                    <Icon className="h-5 w-5 text-navy transition-colors group-hover:text-forest" strokeWidth={1.6} />
                   </div>
-                  <span className="font-semibold text-navy group-hover:text-teal transition-colors text-sm leading-tight">
+                  <span className="text-sm font-semibold leading-tight text-navy transition-colors group-hover:text-forest">
                     {title}
                   </span>
-                  <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-teal ml-auto shrink-0 transition-colors" />
+                  <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-gray-300 transition-all group-hover:translate-x-0.5 group-hover:text-forest" />
                 </a>
               </RevealSection>
             ))}
@@ -237,33 +245,34 @@ export default function Home() {
       </section>
 
       {/* ── Why we're different ───────────────────────────── */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="bg-white py-20 md:py-24">
         <Container>
           <RevealSection>
             <SectionHeading
+              eyebrow="The Difference"
               title="Why Merchants Switch to Us"
               subtitle="Not marketing copy — these are the three things we hear most often from new customers."
-              className="mb-12"
+              className="mb-14"
             />
           </RevealSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {differentiators.map(({ Icon, heading, body }, i) => (
               <RevealSection key={heading} delay={i * 100}>
-                <div className="relative overflow-hidden pl-0">
+                <div className="card-lift relative h-full overflow-hidden rounded-card border border-gray-200/70 bg-surface p-8">
                   <span
                     aria-hidden="true"
-                    className="absolute top-0 left-0 text-[56px] font-black leading-none select-none pointer-events-none"
-                    style={{ color: 'rgba(189,229,37,0.22)' }}
+                    className="absolute -top-3 right-4 select-none text-[80px] font-black leading-none"
+                    style={{ color: 'rgba(159,232,112,0.18)', fontFamily: 'var(--font-display)' }}
                   >
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <div className="relative z-[1]">
-                    <div className="w-12 h-12 rounded-2xl bg-teal/10 flex items-center justify-center mb-5">
-                      <Icon className="w-6 h-6 text-teal" strokeWidth={1.5} />
+                  <div className="relative">
+                    <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-forest to-navy text-lime shadow-lg">
+                      <Icon className="h-7 w-7" strokeWidth={1.6} />
                     </div>
-                    <h3 className="text-lg font-bold text-navy mb-2">{heading}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{body}</p>
+                    <h3 className="mb-2.5 text-xl font-bold text-navy">{heading}</h3>
+                    <p className="text-sm leading-relaxed text-slate">{body}</p>
                   </div>
                 </div>
               </RevealSection>
@@ -276,149 +285,94 @@ export default function Home() {
       <Testimonials />
 
       {/* ── Products ─────────────────────────────────────── */}
-      <section id="products" className="py-16 md:py-20 bg-light-bg">
+      <section id="products" className="bg-white py-20 md:py-24">
         <Container>
           <RevealSection>
             <SectionHeading
-              title="Hardware & Software Solutions"
-              subtitle="Everything you need to accept payments — certified, supported, and shipped ready to go."
-              className="mb-10"
+              eyebrow="Hardware & Software"
+              title="Everything You Need to Get Paid"
+              subtitle="Certified, supported, and shipped ready to go — terminals, ATMs, mobile, and more."
+              className="mb-12"
             />
           </RevealSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {products.map(({ name, href, desc, Icon }, i) => (
-              <RevealSection key={name} delay={i * 70}>
+              <RevealSection key={name} delay={i * 60}>
                 <a
                   href={href}
-                  className="card-lift flex gap-4 bg-white p-5 rounded-xl border border-gray-200 hover:border-teal group"
+                  className="card-lift border-glow group flex h-full gap-4 rounded-card border border-gray-200/70 bg-surface p-6"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-navy flex items-center justify-center shrink-0 group-hover:bg-teal transition-colors">
-                    <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-navy transition-colors group-hover:bg-forest">
+                    <Icon className="h-5 w-5 text-lime" strokeWidth={1.6} />
                   </div>
-                  <div className="min-w-0">
-                    <h3 className="font-bold text-navy group-hover:text-teal transition-colors text-sm mb-0.5">
-                      {name}
-                    </h3>
-                    <p className="text-gray-400 text-xs leading-relaxed">{desc}</p>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="mb-1 font-bold text-navy transition-colors group-hover:text-forest">{name}</h3>
+                    <p className="text-xs leading-relaxed text-muted">{desc}</p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-teal mt-0.5 ml-auto shrink-0 transition-colors" />
+                  <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-gray-300 transition-all group-hover:translate-x-0.5 group-hover:text-forest" />
                 </a>
               </RevealSection>
             ))}
           </div>
 
-          <RevealSection className="text-center mt-8">
+          <RevealSection className="mt-10 text-center">
             <a
               href="/products"
-              className="inline-flex items-center gap-2 border-2 border-navy text-navy font-semibold px-8 py-3 rounded-lg hover:bg-navy hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-forest px-8 py-3 font-semibold text-forest transition-colors hover:bg-forest hover:text-white"
             >
               View All Products
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="h-4 w-4" />
             </a>
           </RevealSection>
         </Container>
       </section>
 
-      {/* ── Stats ────────────────────────────────────────── */}
-      <section className="py-16 bg-light-bg">
+      {/* ── Stats (dark band) ────────────────────────────── */}
+      <section className="premium-hero relative overflow-hidden py-20 text-white md:py-24">
+        <div aria-hidden="true" className="hero-grid absolute inset-0 opacity-70" />
         <Container>
           <RevealSection>
             <SectionHeading
-              title="By the Numbers"
-              subtitle="Earned from thousands of merchants who trust us with their payments."
-              className="mb-10"
+              dark
+              align="center"
+              eyebrow="By the Numbers"
+              title="Earned, Not Advertised"
+              subtitle="Trusted by thousands of merchants who count on us with every transaction."
+              className="mb-14"
             />
           </RevealSection>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Stat 1 */}
-            <RevealSection delay={0}>
-              <div className="relative overflow-hidden bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 flex items-center justify-center text-[80px] font-black leading-none select-none pointer-events-none"
-                  style={{ color: 'rgba(15,58,95,0.04)' }}
-                >
-                  95%
-                </span>
-                <div className="relative z-10">
-                  <div className="text-4xl font-black text-navy mb-2">
-                    <AnimatedCounter value={95} suffix="%" />
-                  </div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wide">Approval Rate</div>
+          <div className="relative grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {[
+              { node: <AnimatedCounter value={95} suffix="%" />, label: 'Approval Rate' },
+              { node: '24/7', label: 'Live Support' },
+              { node: '$0', label: 'Setup Cost' },
+              { node: <AnimatedCounter value={30} suffix="-Day" />, label: 'Risk-Free Trial' },
+            ].map(({ node, label }, i) => (
+              <RevealSection key={label} delay={i * 100}>
+                <div className="glass-dark rounded-card p-8 text-center">
+                  <div className="font-display text-4xl font-bold text-lime md:text-5xl">{node}</div>
+                  <div className="mt-2 text-xs uppercase tracking-wide text-white/55">{label}</div>
                 </div>
-              </div>
-            </RevealSection>
-
-            {/* Stat 2 */}
-            <RevealSection delay={100}>
-              <div className="relative overflow-hidden bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 flex items-center justify-center text-[80px] font-black leading-none select-none pointer-events-none"
-                  style={{ color: 'rgba(15,58,95,0.04)' }}
-                >
-                  24/7
-                </span>
-                <div className="relative z-10">
-                  <div className="text-4xl font-black text-navy mb-2">24/7</div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wide">Live Support</div>
-                </div>
-              </div>
-            </RevealSection>
-
-            {/* Stat 3 */}
-            <RevealSection delay={200}>
-              <div className="relative overflow-hidden bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 flex items-center justify-center text-[80px] font-black leading-none select-none pointer-events-none"
-                  style={{ color: 'rgba(15,58,95,0.04)' }}
-                >
-                  $0
-                </span>
-                <div className="relative z-10">
-                  <div className="text-4xl font-black text-navy mb-2">$0</div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wide">Setup Cost</div>
-                </div>
-              </div>
-            </RevealSection>
-
-            {/* Stat 4 */}
-            <RevealSection delay={300}>
-              <div className="relative overflow-hidden bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 flex items-center justify-center text-[80px] font-black leading-none select-none pointer-events-none"
-                  style={{ color: 'rgba(15,58,95,0.04)' }}
-                >
-                  30
-                </span>
-                <div className="relative z-10">
-                  <div className="text-4xl font-black text-navy mb-2">30</div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wide">Day Risk-Free Trial</div>
-                </div>
-              </div>
-            </RevealSection>
+              </RevealSection>
+            ))}
           </div>
         </Container>
       </section>
 
-      {/* ── Certifications strip ─────────────────────────── */}
-      <section className="py-10 bg-white border-y border-gray-100">
+      {/* ── Certifications marquee ───────────────────────── */}
+      <section className="bg-surface py-12">
         <Container>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <p className="text-gray-400 text-xs uppercase tracking-wider mr-2">Certified &amp; Compliant</p>
-            {['PCI DSS', 'EMV Level 1 & 2', 'Fiserv Partner', 'Clover Partner', 'AMEX Certified'].map((cert) => (
-              <span
-                key={cert}
-                className="bg-light-bg border border-gray-200 text-navy text-xs font-semibold px-3 py-1.5 rounded"
-              >
+          <p className="mb-6 text-center text-xs uppercase tracking-[0.18em] text-muted">Certified &amp; Compliant</p>
+          <Marquee
+            duration={30}
+            items={certs.map((cert) => (
+              <span className="rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-sm font-semibold text-navy shadow-sm">
                 {cert}
               </span>
             ))}
-          </div>
+          />
         </Container>
       </section>
 

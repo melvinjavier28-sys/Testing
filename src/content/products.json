@@ -7,7 +7,7 @@
     "description": "Modern, reliable point-of-sale terminals for every business size.",
     "features": [
       "EMV chip card processing",
-      "Contactless payment support",
+      "Contactless and NFC payment support",
       "Built-in receipt printer",
       "Multiple connectivity options",
       "Touchscreen interface"
@@ -15,27 +15,27 @@
     "specifications": {
       "Display": "5-inch color touchscreen",
       "Connectivity": "Ethernet, WiFi, 4G",
-      "Certifications": "EMV Level 1, PCI DSS",
+      "Certifications": "EMV Level 1 & 2, PCI DSS",
       "Languages": "Multiple language support"
     },
     "pricing": "Custom quotes available",
-    "industries": ["restaurants", "retail", "grocery", "lodging"]
+    "industries": ["restaurants", "retail", "grocery", "gas-stations", "lodging"]
   },
   {
     "id": "atm-machines",
     "slug": "atm-machines",
     "title": "ATM Machines",
     "category": "hardware",
-    "description": "ATM solutions from leading manufacturers: Triton, Nautilus Hyosung, Genmega, and more.",
+    "description": "ATM solutions from leading manufacturers — Triton, Nautilus Hyosung, Genmega, and Hantle.",
     "features": [
       "Multiple brand options",
       "Cash dispensing",
       "Balance inquiry",
       "Withdrawal functionality",
-      "Vault monitoring"
+      "Vault monitoring and remote management"
     ],
     "brands": ["Triton", "Nautilus Hyosung", "Genmega", "Hantle"],
-    "industries": ["grocery", "retail", "restaurants"]
+    "industries": ["grocery", "retail", "restaurants", "gas-stations"]
   },
   {
     "id": "mobile-payments",
@@ -44,12 +44,83 @@
     "category": "software",
     "description": "Accept payments anywhere, anytime with our mobile payment solutions.",
     "features": [
-      "Accept anywhere",
+      "Accept payments anywhere",
       "Instant settlement",
-      "Multiple payment methods",
+      "Multiple payment methods — cards, wallets, QR codes",
       "Real-time reporting",
       "Mobile-optimized interface"
     ],
-    "industries": ["restaurants", "retail", "lodging"]
+    "industries": ["restaurants", "retail", "lodging", "ecommerce"]
+  },
+  {
+    "id": "wireless-terminal",
+    "slug": "wireless-terminal",
+    "title": "Wireless Terminals",
+    "category": "hardware",
+    "description": "Untethered payment acceptance — take the terminal to your customer anywhere on your premises.",
+    "features": [
+      "4G LTE and WiFi connectivity",
+      "All card types accepted",
+      "Compact, lightweight design",
+      "Long battery life",
+      "Same-day transaction reporting"
+    ],
+    "specifications": {
+      "Connectivity": "4G LTE, WiFi 802.11 b/g/n",
+      "Battery": "Up to 8 hours continuous use",
+      "Certifications": "EMV, NFC, PCI PTS"
+    },
+    "pricing": "Custom quotes available",
+    "industries": ["restaurants", "retail", "gas-stations", "lodging"]
+  },
+  {
+    "id": "pin-pads",
+    "slug": "pin-pads",
+    "title": "PIN Pads",
+    "category": "hardware",
+    "description": "Secure, encrypted PIN entry devices for POS integration at checkout.",
+    "features": [
+      "End-to-end encrypted PIN entry",
+      "Debit and credit card support",
+      "Backlit display for low-light environments",
+      "Tamper-resistant hardware",
+      "Plug-and-play POS integration"
+    ],
+    "specifications": {
+      "Certifications": "PCI PTS 5.x approved",
+      "Card Interface": "Magnetic stripe, EMV chip, NFC/contactless",
+      "Communication": "USB, RS-232, Ethernet"
+    },
+    "industries": ["retail", "grocery", "gas-stations", "restaurants"]
+  },
+  {
+    "id": "gift-cards",
+    "slug": "gift-cards",
+    "title": "Gift Cards",
+    "category": "software",
+    "description": "Branded gift card programs that drive repeat business and increase average transaction size.",
+    "features": [
+      "Custom branded card design",
+      "Physical and digital gift card options",
+      "Real-time balance tracking",
+      "Reload and reuse capability",
+      "Loyalty program integration"
+    ],
+    "industries": ["restaurants", "retail", "grocery", "gas-stations", "lodging"]
+  },
+  {
+    "id": "check-processing",
+    "slug": "check-processing",
+    "title": "Check Processing",
+    "category": "software",
+    "description": "Electronic check acceptance and ACH processing for businesses that need more than cards.",
+    "features": [
+      "Electronic check conversion at point of sale",
+      "ACH debit processing",
+      "Check verification and guarantee",
+      "Reduced NSF risk",
+      "Automated deposit reporting"
+    ],
+    "industries": ["retail", "grocery", "ecommerce", "lodging"]
   }
 ]

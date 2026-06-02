@@ -1,26 +1,336 @@
 @import "tailwindcss";
 
+@theme {
+  /* ── Wise design tokens ───────────────────────────────── */
+  --color-canvas:    #ffffff;
+  --color-ink:       #0e0f0c;
+  --color-slate:     #454745;
+  --color-ash:       #e8ebe6;
+  --color-muted:     #868685;
+  --color-ghost:     #6a6c6a;
+  --color-ambient:   #ecf9f9;
+  --color-forest:    #163300;
+  --color-lime:      #9fe870;
+  --color-deep-teal: #0b4c72;
+  /* ── Brand (remapped accent palette) ─────────────────── */
+  --color-navy:      #0F3A5F;
+  --color-navy-light:#1A4F6F;
+  --color-teal:      #9fe870;   /* → Lime Accent */
+  --color-teal-dark: #8fd660;   /* → Darker lime */
+  --color-dark-text: #0e0f0c;   /* → Ink Black   */
+  --color-light-bg:  #e8ebe6;   /* → Ash Gray    */
+
+  /* ── Redesign: extended depth + accents ──────────────── */
+  --color-navy-900:  #0a2740;
+  --color-navy-950:  #061a2c;
+  --color-ink-900:   #04101b;
+  --color-lime-bright: #b6f47f;
+  --color-lime-soft: #d7f7bd;
+  --color-surface:   #f7f9f6;
+
+  /* ── Typography ──────────────────────────────────────── */
+  --font-sans:    var(--font-inter), Inter, system-ui, sans-serif;
+  --font-display: var(--font-display), var(--font-inter), Inter, system-ui, sans-serif;
+}
+
+/* ── Force tokens into :root (Turbopack cache bypass) ────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-canvas:    #ffffff;
+  --color-ink:       #0e0f0c;
+  --color-slate:     #454745;
+  --color-ash:       #e8ebe6;
+  --color-muted:     #868685;
+  --color-ghost:     #6a6c6a;
+  --color-ambient:   #ecf9f9;
+  --color-forest:    #163300;
+  --color-lime:      #9fe870;
+  --color-deep-teal: #0b4c72;
+  --color-navy:      #0F3A5F;
+  --color-navy-light:#1A4F6F;
+  --color-teal:      #9fe870;
+  --color-teal-dark: #8fd660;
+  --color-dark-text: #0e0f0c;
+  --color-light-bg:  #e8ebe6;
+  --color-navy-900:  #0a2740;
+  --color-navy-950:  #061a2c;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #0e0f0c;
+  font-family: var(--font-sans);
+}
+
+a, button, input, select, textarea {
+  outline-color: var(--color-lime);
+}
+
+/* ── Display face on headings for elevated brand voice ───── */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.022em;
+}
+h1 { letter-spacing: -0.03em; }
+
+::selection {
+  background: rgba(159, 232, 112, 0.32);
+  color: #04101b;
+}
+
+/* ── Keyframes ───────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50%       { transform: translateY(-18px) translateX(8px); }
+}
+
+@keyframes badge-pop {
+  from { opacity: 0; transform: scale(0.8) translateX(-8px); }
+  to   { opacity: 1; transform: scale(1)   translateX(0); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes count-bar {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes aurora {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  33%  { transform: translate3d(6%, -8%, 0) scale(1.12); }
+  66%  { transform: translate3d(-5%, 6%, 0) scale(0.95); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes shine-sweep {
+  0%   { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(220%)  skewX(-20deg); }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.9); opacity: 0.7; }
+  70%  { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes ticker-up {
+  0%, 18%  { transform: translateY(0); }
+  25%, 43% { transform: translateY(-25%); }
+  50%, 68% { transform: translateY(-50%); }
+  75%, 93% { transform: translateY(-75%); }
+  100%     { transform: translateY(0); }
+}
+
+@keyframes scroll-cue {
+  0%, 100% { transform: translateY(0); opacity: 0.55; }
+  50%      { transform: translateY(6px); opacity: 1; }
+}
+
+/* ── Animation utilities ─────────────────────────────────── */
+.animate-float       { animation: float 5s ease-in-out infinite; }
+.animate-float-slow  { animation: float-slow 9s ease-in-out infinite; }
+.animate-badge-pop   { animation: badge-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 1s both; }
+.animate-aurora      { animation: aurora 18s ease-in-out infinite; }
+.animate-scroll-cue  { animation: scroll-cue 1.6s ease-in-out infinite; }
+
+/* ── Scroll reveal ───────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Card hover lift ─────────────────────────────────────── */
+.card-lift {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 44px rgba(10, 39, 64, 0.14);
+}
+
+/* ── Hero: deep navy authority gradient (redesigned) ─────── */
+.premium-hero {
+  background:
+    radial-gradient(900px 520px at 12% -10%, rgba(159, 232, 112, 0.18), transparent 60%),
+    radial-gradient(800px 600px at 92% 8%, rgba(35, 120, 180, 0.30), transparent 60%),
+    linear-gradient(160deg, #0a2740 0%, #0F3A5F 46%, #061a2c 100%);
+}
+
+/* Aurora blobs for hero backdrop */
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Hero fine grid that fades out toward the bottom */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(159, 232, 112, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(159, 232, 112, 0.07) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, #000 35%, transparent 78%);
+          mask-image: radial-gradient(120% 90% at 50% 0%, #000 35%, transparent 78%);
+}
+
+.product-grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* ── Glass surfaces ──────────────────────────────────────── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(14px);
+}
+
+.glass-dark {
+  background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 80px rgba(4, 16, 27, 0.55);
+  backdrop-filter: blur(18px);
+}
+
+/* ── Wise card surfaces (kept for other pages) ───────────── */
+.wise-card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 6px 20px 0px;
+}
+.wise-card-dark {
+  background: #163300;
+  border-radius: 37px;
+  padding: 48px 28px;
+}
+
+/* ── Gradient text accent ────────────────────────────────── */
+.text-gradient-lime {
+  background: linear-gradient(100deg, #b6f47f 0%, #9fe870 45%, #6fd6c4 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ── Gradient-bordered card (light surfaces) ─────────────── */
+.border-glow {
+  position: relative;
+  isolation: isolate;
+}
+.border-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(159,232,112,0.7), rgba(15,58,95,0.12) 45%, transparent 75%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+.border-glow:hover::before { opacity: 1; }
+
+/* ── Button shine sweep ──────────────────────────────────── */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: translateX(-120%) skewX(-20deg);
+  z-index: 1;
+}
+.btn-shine:hover::after {
+  animation: shine-sweep 0.85s ease;
+}
+
+/* ── Live pulse dot ──────────────────────────────────────── */
+.pulse-dot { position: relative; }
+.pulse-dot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: currentColor;
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ── Marquee ─────────────────────────────────────────────── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-pause:hover .marquee-track { animation-play-state: paused; }
+
+/* ── Underline link animation ────────────────────────────── */
+.link-underline { position: relative; }
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 0; height: 1.5px;
+  background: currentColor;
+  transition: width 0.25s ease;
+}
+.link-underline:hover::after { width: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .marquee-track { animation: none; }
 }

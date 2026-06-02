@@ -16,18 +16,20 @@ export default function Hero({
   ctaHref = '/signup',
 }: HeroProps) {
   return (
-    <section className="bg-gradient-to-r from-navy to-navy-light text-white py-24 md:py-32">
+    <section className="bg-navy text-white py-14 md:py-20 border-b border-white/10">
       <Container>
         <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
             {title}
           </h1>
-          <p className="text-xl md:text-2xl mb-8 opacity-95">
+          <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
             {subtitle}
           </p>
-          <Button variant="primary" href={ctaHref} size="lg">
-            {ctaText}
-          </Button>
+          {ctaText && (
+            <Button variant="primary" href={ctaHref} size="lg">
+              {ctaText}
+            </Button>
+          )}
         </div>
       </Container>
     </section>

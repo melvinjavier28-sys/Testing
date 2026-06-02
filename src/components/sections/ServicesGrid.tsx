@@ -13,11 +13,12 @@ interface ServicesGridProps {
   title: string;
   subtitle: string;
   services: Service[];
+  id?: string;
 }
 
-export default function ServicesGrid({ title, subtitle, services }: ServicesGridProps) {
+export default function ServicesGrid({ title, subtitle, services, id }: ServicesGridProps) {
   return (
-    <Section background="light">
+    <Section background="light" id={id}>
       <Container>
         <h2 className="text-4xl font-bold mb-2">{title}</h2>
         <p className="text-lg text-gray-600 mb-12">{subtitle}</p>

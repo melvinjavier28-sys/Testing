@@ -1,5 +1,6 @@
 import Container from '@/src/components/common/Container';
 import Section from '@/src/components/common/Section';
+import { ArrowRight } from 'lucide-react';
 
 interface Product {
   id: string;
@@ -18,21 +19,23 @@ export default function ProductGrid({ title, subtitle, products }: ProductGridPr
   return (
     <Section background="white">
       <Container>
-        <h2 className="text-4xl font-bold mb-2">{title}</h2>
-        <p className="text-lg text-gray-600 mb-12">{subtitle}</p>
+        <div className="w-9 h-[3px] bg-lime mb-3 rounded-full" />
+        <h2 className="text-3xl md:text-4xl font-bold text-ink mb-2">{title}</h2>
+        <p className="text-base text-slate mb-10">{subtitle}</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {products.map((product) => (
-            <div
+            <a
               key={product.id}
-              className="bg-navy text-white p-8 rounded-lg text-center hover:bg-navy-light transition-colors"
+              href={product.href}
+              className="card-lift bg-forest text-white p-7 rounded-card flex flex-col gap-3 hover:bg-[#1e4a00] transition-colors group"
             >
-              <h4 className="text-2xl font-semibold mb-3">{product.title}</h4>
-              <p className="text-gray-300 mb-6">{product.description}</p>
-              <a href={product.href} className="text-teal font-semibold hover:text-teal-dark">
-                Explore →
-              </a>
-            </div>
+              <h4 className="text-lg font-bold">{product.title}</h4>
+              <p className="text-white/65 text-sm leading-relaxed flex-1">{product.description}</p>
+              <span className="inline-flex items-center gap-1 text-lime text-sm font-semibold">
+                Explore <ArrowRight className="w-4 h-4" />
+              </span>
+            </a>
           ))}
         </div>
       </Container>

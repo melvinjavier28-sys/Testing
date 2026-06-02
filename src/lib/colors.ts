@@ -1,25 +1,26 @@
 export const colors = {
-  primary: {
-    navy: '#0F3A5F',
-    'navy-light': '#1A4F6F',
-  },
-  accent: {
-    teal: '#00C9A7',
-    'teal-dark': '#00B393',
-  },
-  text: {
-    dark: '#333333',
-    light: '#666666',
-  },
-  background: {
-    white: '#FFFFFF',
-    light: '#F5F5F5',
-  },
+  // ── Wise design tokens ─────────────────────────────────
+  canvas:   '#ffffff',
+  ink:      '#0e0f0c',
+  slate:    '#454745',
+  ash:      '#e8ebe6',
+  muted:    '#868685',
+  ghost:    '#6a6c6a',
+  ambient:  '#ecf9f9',
+  forest:   '#163300',
+  lime:     '#9fe870',
+  deepTeal: '#0b4c72',
+  // ── Brand (remapped accent palette) ───────────────────
+  navy:     '#0F3A5F',
+  navyLight:'#1A4F6F',
+  teal:     '#9fe870',   // → Lime Accent
+  tealDark: '#8fd660',   // → Darker lime
 };
 
 export const colorClasses = {
-  primary: 'bg-navy text-white',
-  accent: 'bg-teal text-white',
-  light: 'bg-light-bg text-dark-text',
-  white: 'bg-white text-dark-text',
+  primary: 'bg-forest text-white',
+  accent:  'bg-lime text-navy',
+  light:   'bg-ash text-ink',
+  white:   'bg-white text-ink',
+  ambient: 'bg-ambient text-ink',
 };

@@ -4,12 +4,14 @@ interface SectionProps {
   children: React.ReactNode;
   background?: 'white' | 'light' | 'navy';
   className?: string;
+  id?: string;
 }
 
 export default function Section({
   children,
   background = 'white',
   className = '',
+  id,
 }: SectionProps) {
   const bgClass = {
     white: 'bg-white',
@@ -18,7 +20,7 @@ export default function Section({
   };
 
   return (
-    <section className={`py-16 md:py-24 ${bgClass[background]} ${className}`}>
+    <section id={id} className={`py-16 md:py-24 ${bgClass[background]} ${className}`}>
       {children}
     </section>
   );

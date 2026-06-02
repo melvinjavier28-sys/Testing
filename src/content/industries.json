@@ -59,11 +59,29 @@
     "recommendedProducts": ["pos-terminals", "atm-machines"]
   },
   {
+    "id": "gas-stations",
+    "slug": "gas-stations",
+    "title": "Gas Stations & Convenience Stores",
+    "shortDescription": "Speed and loyalty programs built for fuel retailers.",
+    "fullDescription": "Gas stations and convenience stores operate around the clock, and so do we. We deliver pay-at-pump solutions, fleet card acceptance, and integrated loyalty programs designed for the fuel retail industry.",
+    "painPoints": [
+      "High-speed transaction requirements at the pump",
+      "Fleet card and commercial card management",
+      "24/7 operation with zero downtime tolerance"
+    ],
+    "solutions": [
+      "Pay-at-pump terminal integration",
+      "Fleet card and commercial card acceptance",
+      "Integrated loyalty and gift card programs"
+    ],
+    "recommendedProducts": ["pos-terminals", "wireless-terminal", "gift-cards"]
+  },
+  {
     "id": "lodging",
     "slug": "lodging",
     "title": "Lodging & Hospitality",
     "shortDescription": "Integrated. Reliable. Enterprise-grade.",
-    "fullDescription": "Hotels, motels, and hospitality businesses need reliable payment solutions. We deliver enterprise-grade processing.",
+    "fullDescription": "Hotels, motels, and hospitality businesses need reliable payment solutions. We deliver enterprise-grade processing with guest folio integration and secure tokenization.",
     "painPoints": [
       "Need for room charges and deposits",
       "Guest folio integration",
@@ -75,5 +93,23 @@
       "EMV and tokenization support"
     ],
     "recommendedProducts": ["pos-terminals"]
+  },
+  {
+    "id": "ecommerce",
+    "slug": "ecommerce",
+    "title": "E-commerce & Online Retail",
+    "shortDescription": "Real-time online processing. Fraud protection. 95% approval rate.",
+    "fullDescription": "Accept payments on your website with real-time authorization and advanced fraud detection. Our internet merchant accounts are optimized for online retail, subscriptions, and digital goods.",
+    "painPoints": [
+      "Fraud and chargeback exposure",
+      "Need for real-time transaction authorization",
+      "International payment acceptance"
+    ],
+    "solutions": [
+      "Real-time payment gateway integration",
+      "Advanced fraud detection and chargeback management",
+      "Support for major credit cards, digital wallets, and ACH"
+    ],
+    "recommendedProducts": ["mobile-payments", "check-processing"]
   }
 ]

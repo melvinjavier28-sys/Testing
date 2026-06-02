@@ -5,7 +5,7 @@ interface CardProps {
   className?: string;
   border?: 'left' | 'none';
   borderColor?: 'teal' | 'navy';
-  background?: 'white' | 'light' | 'navy';
+  background?: 'white' | 'light' | 'navy' | 'forest' | 'ambient';
 }
 
 export default function Card({
@@ -15,16 +15,18 @@ export default function Card({
   borderColor = 'teal',
   background = 'white',
 }: CardProps) {
-  const bgClass = {
-    white: 'bg-white',
-    light: 'bg-light-bg',
-    navy: 'bg-navy text-white',
+  const bgClass: Record<string, string> = {
+    white:   'bg-white shadow-[0_2px_18px_-8px_rgba(10,39,64,0.18)]',
+    light:   'bg-surface',
+    navy:    'bg-navy text-white',
+    forest:  'bg-forest text-white',
+    ambient: 'bg-ambient',
   };
 
   const borderClass = border === 'left' ? `border-l-4 border-${borderColor}` : '';
 
   return (
-    <div className={`p-6 rounded-lg ${bgClass[background]} ${borderClass} ${className}`}>
+    <div className={`p-7 rounded-card ${bgClass[background]} ${borderClass} ${className}`}>
       {children}
     </div>
   );
