@@ -2,6 +2,7 @@ import Hero from '@/src/components/sections/Hero';
 import Container from '@/src/components/common/Container';
 import Section from '@/src/components/common/Section';
 import Card from '@/src/components/common/Card';
+import ContactForm from '@/src/components/forms/ContactForm';
 
 const supportTeam = [
   { name: 'Angela R.',  role: 'Sales',             initials: 'AR', color: 'bg-navy' },
@@ -74,51 +75,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="bg-white p-12 rounded-lg max-w-2xl mx-auto">
-            <h2 className="text-2xl font-bold text-navy mb-6">Send us a Message</h2>
-            <form className="space-y-6">
-              <div>
-                <label htmlFor="contactName" className="block text-sm font-semibold text-navy mb-2">Name</label>
-                <input
-                  id="contactName"
-                  name="name"
-                  type="text"
-                  required
-                  autoComplete="name"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label htmlFor="contactEmail" className="block text-sm font-semibold text-navy mb-2">Email</label>
-                <input
-                  id="contactEmail"
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal"
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="contactMessage" className="block text-sm font-semibold text-navy mb-2">Message</label>
-                <textarea
-                  id="contactMessage"
-                  name="message"
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal h-32"
-                  placeholder="Your message..."
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-teal text-navy font-semibold py-3 rounded-lg hover:bg-teal-dark transition-colors"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
+          <ContactForm />
         </Container>
       </Section>
     </>
