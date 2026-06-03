@@ -40,7 +40,7 @@ export default function Footer() {
               <span className="text-gradient-lime">National</span> e-Payment
             </h4>
             <p className="text-sm text-white/55 mb-5 leading-relaxed">
-              Registered MSP/ISO serving merchants nationwide with payment processing, ATMs, and equipment.
+              Registered MSP/ISO serving merchants nationwide with payment processing, terminals, and equipment.
             </p>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -84,12 +84,12 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-white text-sm uppercase tracking-wider">Products</h4>
             <ul className="space-y-2.5 text-sm">
               {[
-                ['Credit Card Terminals', '/products/terminals'],
-                ['ATM Machines', '/products/atm-machines'],
-                ['Mobile Pay Products', '/products/mobile-pay'],
-                ['Wireless Terminals', '/products/wireless-terminal'],
-                ['PIN Pads', '/products/pin-pads'],
-                ['Printers', '/products/printers'],
+                ['Credit Card Terminals', '/products#valor'],
+                ['POS Systems', '/products#clover'],
+                ['Mobile Pay Products', '/products#pax'],
+                ['Wireless Terminals', '/products#pax'],
+                ['PIN Pads', '/products#verifone'],
+                ['Duo Pricer', '/products'],
               ].map(([label, href]) => (
                 <li key={label}>
                   <a href={href} className="link-underline text-white/55 hover:text-lime transition-colors">{label}</a>

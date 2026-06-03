@@ -32,64 +32,6 @@ export const terminals: CatalogCategory = {
   ],
 };
 
-export const tritonATMs: CatalogCategory = {
-  id: 'triton',
-  slug: 'triton',
-  name: 'Triton ATM Machines',
-  description: 'Triton ATMs are trusted by retailers and financial institutions worldwide for reliability and ease of service.',
-  products: [
-    { name: 'Triton Argo 12S', callForPrice: true },
-    { name: 'Triton Argo 7D', callForPrice: true },
-    { name: 'Triton Argo 7S', callForPrice: true },
-    { name: 'Triton FT5000', callForPrice: true },
-    { name: 'Triton Traverse', callForPrice: true },
-  ],
-};
-
-export const nautilusATMs: CatalogCategory = {
-  id: 'nautilus-hyosung',
-  slug: 'nautilus-hyosung',
-  name: 'Nautilus Hyosung ATM Machines',
-  description: 'Nautilus Hyosung ATMs deliver superior cash handling, modern touchscreen interfaces, and industry-leading uptime.',
-  products: [
-    { name: 'Nautilus Hyosung 2700CE', price: 2485 },
-    { name: 'Nautilus Hyosung 2700T', price: 4265 },
-    { name: 'Nautilus Hyosung 4000W', callForPrice: true },
-    { name: 'Nautilus Hyosung 5200', price: 2855 },
-    { name: 'Nautilus Hyosung Halo II', price: 2260 },
-    { name: 'Nautilus Hyosung MX5300CE', callForPrice: true },
-  ],
-};
-
-export const genmegaATMs: CatalogCategory = {
-  id: 'genmega',
-  slug: 'genmega',
-  name: 'Genmega ATM Machines',
-  description: 'Genmega provides a full line of freestanding and through-the-wall ATMs for retail, hospitality, and high-volume locations.',
-  products: [
-    { name: 'Genmega C6000', price: 3150 },
-    { name: 'Genmega G2500', price: 2245 },
-    { name: 'Genmega GT3000', price: 3630 },
-    { name: 'Genmega GT5000', price: 7290 },
-    { name: 'Genmega Onyx', price: 2435 },
-    { name: 'Genmega Onyx W', price: 2640 },
-    { name: 'GK1000 Bill Payment Kiosk', price: 3995 },
-  ],
-};
-
-export const hantleATMs: CatalogCategory = {
-  id: 'hantle',
-  slug: 'hantle',
-  name: 'Hantle ATM Machines',
-  description: 'Hantle offers freestanding and countertop ATMs built for convenience stores, casinos, and high-traffic retail.',
-  products: [
-    { name: 'Hantle 1700W', price: 2190 },
-    { name: 'Hantle C4000', price: 3120 },
-    { name: 'Hantle CoinGoat', callForPrice: true },
-    { name: 'Hantle T4000', price: 5900 },
-  ],
-};
-
 export const mobilePayProducts: CatalogCategory = {
   id: 'mobile-pay',
   slug: 'mobile-pay',
@@ -144,16 +86,8 @@ export const printers: CatalogCategory = {
   ],
 };
 
-export const allATMBrands = [
-  { name: 'Triton ATM', slug: 'triton', href: '/products/atm-machines/triton', count: tritonATMs.products.length },
-  { name: 'Nautilus Hyosung', slug: 'nautilus-hyosung', href: '/products/atm-machines/nautilus-hyosung', count: nautilusATMs.products.length },
-  { name: 'Genmega', slug: 'genmega', href: '/products/atm-machines/genmega', count: genmegaATMs.products.length },
-  { name: 'Hantle', slug: 'hantle', href: '/products/atm-machines/hantle', count: hantleATMs.products.length },
-];
-
 export const allCategories = [
   { name: 'Terminals', slug: 'terminals', href: '/products/terminals', count: terminals.products.length },
-  { name: 'ATM Machines', slug: 'atm-machines', href: '/products/atm-machines', count: tritonATMs.products.length + nautilusATMs.products.length + genmegaATMs.products.length + hantleATMs.products.length },
   { name: 'Mobile Pay Products', slug: 'mobile-pay', href: '/products/mobile-pay', count: mobilePayProducts.products.length },
   { name: 'Wireless Terminals', slug: 'wireless-terminal', href: '/products/wireless-terminal', count: wirelessTerminals.products.length },
   { name: 'PIN Pads', slug: 'pin-pads', href: '/products/pin-pads', count: pinPads.products.length },

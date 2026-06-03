@@ -19,11 +19,11 @@ import {
   FileCheck,
   CreditCard,
   Wifi,
-  Printer,
   ArrowRight,
   ChevronDown,
   Check,
   Shield,
+  Tag,
   Clock,
   TrendingDown,
   Smartphone,
@@ -43,12 +43,12 @@ const industries = [
 ];
 
 const products = [
-  { name: 'Terminals',          href: '/products/terminals',        desc: 'Clover · Ingenico · PAX · Verifone',   Icon: CreditCard },
-  { name: 'ATM Machines',       href: '/products/atm-machines',     desc: 'Triton · Nautilus · Genmega · Hantle', Icon: CreditCard },
-  { name: 'Mobile Pay',         href: '/products/mobile-pay',       desc: 'Clover Go · ISOACCESS Mobile',         Icon: Smartphone },
-  { name: 'Wireless Terminals', href: '/products/wireless-terminal',desc: 'Ingenico · PAX · Verifone',            Icon: Wifi },
-  { name: 'PIN Pads',           href: '/products/pin-pads',         desc: 'First Data · Ingenico · PAX',          Icon: CreditCard },
-  { name: 'Printers',           href: '/products/printers',         desc: 'Clover · Epson · Star Micronics',      Icon: Printer },
+  { name: 'Smart Terminals',    href: '/products#valor',    desc: 'Valor · Clover · PAX · Ingenico',   Icon: CreditCard },
+  { name: 'POS Systems',        href: '/products#clover',   desc: 'Clover Station, Mini, Flex & more', Icon: Store },
+  { name: 'Mobile Pay',         href: '/products#pax',      desc: 'PAX A920 · Clover Go · Valor RCKT', Icon: Smartphone },
+  { name: 'Wireless Terminals', href: '/products#pax',      desc: 'PAX · Ingenico · Verifone',         Icon: Wifi },
+  { name: 'PIN Pads',           href: '/products#verifone', desc: 'Valor · PAX A35 · Verifone M400',   Icon: CreditCard },
+  { name: 'Duo Pricer',         href: '/products',          desc: 'Our in-house dual-pricing labeler', Icon: Tag },
 ];
 
 const differentiators = [
@@ -130,7 +130,7 @@ export default function Home() {
                 </h1>
 
                 <p className="mb-6 max-w-lg text-base leading-relaxed text-white/70 md:text-lg">
-                  From credit card processing to ATMs, gift cards to check processing —
+                  From credit card processing to gift cards and check processing —
                   everything your business needs in one trusted, registered ecosystem.
                 </p>
 
@@ -291,7 +291,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="Hardware & Software"
               title="Everything You Need to Get Paid"
-              subtitle="Certified, supported, and shipped ready to go — terminals, ATMs, mobile, and more."
+              subtitle="Certified, supported, and shipped ready to go — terminals, POS systems, mobile, and more."
               className="mb-12"
             />
           </RevealSection>

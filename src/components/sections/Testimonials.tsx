@@ -35,7 +35,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      'The ATM program alone more than pays for itself. My customers stay longer and I keep the surcharge revenue instead of sending it to a third-party operator.',
+      'After bouncing between three processors in ten years, National e-Payment is the first to actually lower my rate and keep it there. When my terminal went down before the morning rush, a real person picked up on the second ring.',
     name: 'David Rosner',
     role: 'Gas Station Owner',
     location: 'Long Island City, NY',

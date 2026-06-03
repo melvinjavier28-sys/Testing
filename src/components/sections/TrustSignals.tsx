@@ -11,7 +11,7 @@ const trustItems = [
   {
     Icon: ShieldCheck,
     title: 'Security-First Equipment',
-    body: 'PCI, EMV, and contactless-ready hardware options for countertop, mobile, wireless, and ATM workflows.',
+    body: 'PCI, EMV, and contactless-ready hardware options for countertop, mobile, and wireless workflows.',
   },
   {
     Icon: Headphones,

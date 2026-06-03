@@ -19,23 +19,13 @@
       "Languages": "Multiple language support"
     },
     "pricing": "Custom quotes available",
-    "industries": ["restaurants", "retail", "grocery", "gas-stations", "lodging"]
-  },
-  {
-    "id": "atm-machines",
-    "slug": "atm-machines",
-    "title": "ATM Machines",
-    "category": "hardware",
-    "description": "ATM solutions from leading manufacturers — Triton, Nautilus Hyosung, Genmega, and Hantle.",
-    "features": [
-      "Multiple brand options",
-      "Cash dispensing",
-      "Balance inquiry",
-      "Withdrawal functionality",
-      "Vault monitoring and remote management"
-    ],
-    "brands": ["Triton", "Nautilus Hyosung", "Genmega", "Hantle"],
-    "industries": ["grocery", "retail", "restaurants", "gas-stations"]
+    "industries": [
+      "restaurants",
+      "retail",
+      "grocery",
+      "gas-stations",
+      "lodging"
+    ]
   },
   {
     "id": "mobile-payments",
@@ -50,7 +40,12 @@
       "Real-time reporting",
       "Mobile-optimized interface"
     ],
-    "industries": ["restaurants", "retail", "lodging", "ecommerce"]
+    "industries": [
+      "restaurants",
+      "retail",
+      "lodging",
+      "ecommerce"
+    ]
   },
   {
     "id": "wireless-terminal",
@@ -71,7 +66,12 @@
       "Certifications": "EMV, NFC, PCI PTS"
     },
     "pricing": "Custom quotes available",
-    "industries": ["restaurants", "retail", "gas-stations", "lodging"]
+    "industries": [
+      "restaurants",
+      "retail",
+      "gas-stations",
+      "lodging"
+    ]
   },
   {
     "id": "pin-pads",
@@ -91,7 +91,12 @@
       "Card Interface": "Magnetic stripe, EMV chip, NFC/contactless",
       "Communication": "USB, RS-232, Ethernet"
     },
-    "industries": ["retail", "grocery", "gas-stations", "restaurants"]
+    "industries": [
+      "retail",
+      "grocery",
+      "gas-stations",
+      "restaurants"
+    ]
   },
   {
     "id": "gift-cards",
@@ -106,7 +111,13 @@
       "Reload and reuse capability",
       "Loyalty program integration"
     ],
-    "industries": ["restaurants", "retail", "grocery", "gas-stations", "lodging"]
+    "industries": [
+      "restaurants",
+      "retail",
+      "grocery",
+      "gas-stations",
+      "lodging"
+    ]
   },
   {
     "id": "check-processing",
@@ -121,6 +132,11 @@
       "Reduced NSF risk",
       "Automated deposit reporting"
     ],
-    "industries": ["retail", "grocery", "ecommerce", "lodging"]
+    "industries": [
+      "retail",
+      "grocery",
+      "ecommerce",
+      "lodging"
+    ]
   }
 ]

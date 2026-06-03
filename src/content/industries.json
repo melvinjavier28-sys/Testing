@@ -56,7 +56,7 @@
       "Self-checkout terminal support",
       "24/7 dedicated support"
     ],
-    "recommendedProducts": ["pos-terminals", "atm-machines"]
+    "recommendedProducts": ["pos-terminals"]
   },
   {
     "id": "gas-stations",
