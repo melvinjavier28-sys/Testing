@@ -63,13 +63,13 @@ export const brands: Brand[] = [
     tagline: 'Android smart terminals, PIN pads, and unattended devices.',
     externalUrl: 'https://www.pax.us/products/',
     products: [
-      { slug: 'a920-pro', name: 'A920 Pro', type: 'Smart Mobile Terminal', blurb: 'Premium Android smart terminal with a vivid touchscreen.' },
-      { slug: 'a920-max', name: 'A920 MAX', type: 'Smart Mobile Terminal', blurb: 'Large-screen Android terminal for high-volume use.' },
-      { slug: 'a80', name: 'A80', type: 'Countertop Terminal', blurb: 'Sleek countertop terminal that saves counter space.' },
-      { slug: 'a35', name: 'A35', type: 'PIN Pad', blurb: 'Interactive multilane PIN pad for retail checkout.' },
-      { slug: 'a800', name: 'A800', type: 'Mobile Terminal', blurb: 'Lightweight Android mobile payment terminal.' },
+      { slug: 'a920-pro', name: 'A920 Pro', type: 'Smart Mobile Terminal', blurb: 'Premium Android smart terminal with a vivid touchscreen.', image: '/products/pax/a920-pro.png' },
+      { slug: 'a920-max', name: 'A920 MAX', type: 'Smart Mobile Terminal', blurb: 'Large-screen Android terminal for high-volume use.', image: '/products/pax/a920-max.png' },
+      { slug: 'a80', name: 'A80', type: 'Countertop Terminal', blurb: 'Sleek countertop terminal that saves counter space.', image: '/products/pax/a80.png' },
+      { slug: 'a35', name: 'A35', type: 'PIN Pad', blurb: 'Interactive multilane PIN pad for retail checkout.', image: '/products/pax/a35.png' },
+      { slug: 'a800', name: 'A800', type: 'Mobile Terminal', blurb: 'Lightweight Android mobile payment terminal.', image: '/products/pax/a800.png' },
       { slug: 'aries8', name: 'Aries8', type: 'Smart PIN Pad', blurb: 'Interactive customer-facing smart PIN pad.' },
-      { slug: 'a77', name: 'A77', type: 'Mobile Terminal', blurb: 'Compact handheld terminal for field payments.' },
+      { slug: 'a77', name: 'A77', type: 'Mobile Terminal', blurb: 'Compact handheld terminal for field payments.', image: '/products/pax/a77.png' },
       { slug: 'im30', name: 'IM30', type: 'Unattended Terminal', blurb: 'Rugged unattended terminal for self-service kiosks.' },
     ],
   },
@@ -89,7 +89,7 @@ export const brands: Brand[] = [
     tagline: 'Consumer-facing PIN pads for multilane retail.',
     externalUrl: 'https://www.verifone.com/en-us/hardware-product/verifone-m400',
     products: [
-      { slug: 'm400', name: 'M400', type: 'Multilane PIN Pad', blurb: '5-inch multi-touch consumer-facing PIN pad.' },
+      { slug: 'm400', name: 'M400', type: 'Multilane PIN Pad', blurb: '5-inch multi-touch consumer-facing PIN pad.', image: '/products/verifone/m400.jpg' },
     ],
   },
 ];
