@@ -11,6 +11,8 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 const TO_EMAIL = process.env.LEAD_TO_EMAIL;
+// Partner/ISO inquiries route to a role inbox (overridable via env).
+const PARTNER_TO_EMAIL = process.env.PARTNER_TO_EMAIL || 'support@nationalepayment.com';
 const FROM_EMAIL = process.env.LEAD_FROM_EMAIL || 'National e-Payment <onboarding@resend.dev>';
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
@@ -44,12 +46,21 @@ const FIELD_LABELS: Record<string, Record<string, string>> = {
     phone: 'Phone',
     volume: 'Monthly volume',
   },
+  partner: {
+    firstName: 'First name',
+    lastName: 'Last name',
+    company: 'Company',
+    email: 'Email',
+    phone: 'Phone',
+    bookOfBusiness: 'Book of business',
+    message: 'About their business',
+  },
 };
 
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey || !TO_EMAIL) {
-    console.error('[lead] missing RESEND_API_KEY or LEAD_TO_EMAIL');
+  if (!apiKey) {
+    console.error('[lead] RESEND_API_KEY is not set');
     return jsonError('The form is not fully set up yet. Please call us at (866) 436-9022.', 500);
   }
 
@@ -65,7 +76,17 @@ export async function POST(request: Request) {
     return Response.json({ ok: true });
   }
 
-  const formType = data.formType === 'application' ? 'application' : 'contact';
+  const formType =
+    data.formType === 'application'
+      ? 'application'
+      : data.formType === 'partner'
+        ? 'partner'
+        : 'contact';
+  const recipient = formType === 'partner' ? PARTNER_TO_EMAIL : TO_EMAIL;
+  if (!recipient) {
+    console.error('[lead] no recipient configured for', formType);
+    return jsonError('The form is not fully set up yet. Please call us at (866) 436-9022.', 500);
+  }
   const labels = FIELD_LABELS[formType];
 
   const email = String(data.email ?? '').trim();
@@ -85,20 +106,25 @@ export async function POST(request: Request) {
     return jsonError('Please fill in the form before submitting.', 400);
   }
 
-  const heading =
-    formType === 'application'
-      ? 'New merchant application'
-      : 'New contact message';
-  const who =
-    formType === 'application'
-      ? `${String(data.firstName ?? '').trim()} ${String(data.lastName ?? '').trim()}`.trim() ||
-        String(data.businessName ?? '').trim()
-      : String(data.name ?? '').trim();
+  const headings: Record<string, string> = {
+    application: 'New merchant application',
+    partner: 'New ISO partner inquiry',
+    contact: 'New contact message',
+  };
+  const heading = headings[formType];
 
-  const subject =
-    formType === 'application'
-      ? `New application — ${who || email}`
-      : `New contact message — ${who || email}`;
+  const who =
+    formType === 'contact'
+      ? String(data.name ?? '').trim()
+      : `${String(data.firstName ?? '').trim()} ${String(data.lastName ?? '').trim()}`.trim() ||
+        String(data.company ?? data.businessName ?? '').trim();
+
+  const subjects: Record<string, string> = {
+    application: `New application — ${who || email}`,
+    partner: `New partner inquiry — ${who || email}`,
+    contact: `New contact message — ${who || email}`,
+  };
+  const subject = subjects[formType];
 
   const textBody = `${heading}\n\n${rows.map((r) => `${r.label}: ${r.value}`).join('\n')}\n`;
 
@@ -140,7 +166,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         from: FROM_EMAIL,
-        to: [TO_EMAIL],
+        to: [recipient],
         reply_to: email,
         subject,
         html: htmlBody,

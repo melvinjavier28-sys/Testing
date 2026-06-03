@@ -1,278 +1,230 @@
-import Image from 'next/image';
-import Hero from '@/src/components/sections/Hero';
 import Container from '@/src/components/common/Container';
-import Section from '@/src/components/common/Section';
-import Card from '@/src/components/common/Card';
+import SectionHeading from '@/src/components/common/SectionHeading';
+import RevealSection from '@/src/components/common/RevealSection';
 import CTASection from '@/src/components/sections/CTASection';
+import PartnerForm from '@/src/components/forms/PartnerForm';
+import {
+  BadgeCheck,
+  Users,
+  CreditCard,
+  GraduationCap,
+  BadgeDollarSign,
+  SlidersHorizontal,
+  LineChart,
+  CalendarCheck,
+  Headphones,
+  Landmark,
+  Megaphone,
+  Quote,
+  Star,
+  ArrowRight,
+  Phone,
+} from 'lucide-react';
 
 export const metadata = {
-  title: 'ISO Partner Program | National e-Payment',
-  description: "Join National e-Payment's ISO partner program. Why compete with us when you can join us?",
+  title: 'Become an ISO Partner | National e-Payment',
+  description:
+    "Join National e-Payment's ISO partner program — industry-leading residuals, dedicated support, and multiple bank relationships. Why compete with us when you can join us?",
 };
 
 const benefits = [
-  {
-    title: 'Trusted Brand Name',
-    description: 'Leverage a recognized name in merchant services to open doors with prospects.',
-  },
-  {
-    title: 'Dedicated Business Consultants',
-    description: 'Your own dedicated rep to help close deals and support your portfolio.',
-  },
-  {
-    title: 'Leader in Payment Processing & Gift Cards',
-    description: 'Offer a complete suite of products — terminals, ATMs, gift cards, and more.',
-  },
-  {
-    title: 'Professional Training Program',
-    description: 'Train-the-trainer tools and resources so your team hits the ground running.',
-  },
-  {
-    title: 'Competitive Compensation',
-    description: 'Industry-leading residuals and upfront bonuses for your sales.',
-  },
-  {
-    title: 'Flexible Pricing Options',
-    description: 'Set your own pricing within our program guidelines to stay competitive.',
-  },
-  {
-    title: 'Web-Based Reporting',
-    description: 'Real-time access to your portfolio performance, residuals, and merchant data.',
-  },
-  {
-    title: 'Timely Commission Payments',
-    description: 'Accurate and on-time residual payments you can count on every month.',
-  },
-  {
-    title: '24/7 Technical Support',
-    description: 'Round-the-clock support for you and your merchants — no extra charge.',
-  },
-  {
-    title: 'Multiple Bank Relationships',
-    description: 'Processing through Elavon, Wells Fargo, Esquire Bank, and Commercial Bank of California.',
-  },
-  {
-    title: 'Marketing Materials',
-    description: 'Co-branded collateral, rate sheets, and digital assets ready to use.',
-  },
+  { Icon: BadgeCheck, title: 'Trusted Brand Name', description: 'Leverage a recognized name in merchant services to open doors with prospects.' },
+  { Icon: Users, title: 'Dedicated Business Consultants', description: 'Your own dedicated rep to help close deals and support your portfolio.' },
+  { Icon: CreditCard, title: 'Full Product Suite', description: 'Offer terminals, ATMs, gift cards, and more — a complete payments lineup.' },
+  { Icon: GraduationCap, title: 'Professional Training', description: 'Train-the-trainer tools and resources so your team hits the ground running.' },
+  { Icon: BadgeDollarSign, title: 'Competitive Compensation', description: 'Industry-leading residuals and upfront bonuses for your sales.' },
+  { Icon: SlidersHorizontal, title: 'Flexible Pricing', description: 'Set your own pricing within our program guidelines to stay competitive.' },
+  { Icon: LineChart, title: 'Web-Based Reporting', description: 'Real-time access to portfolio performance, residuals, and merchant data.' },
+  { Icon: CalendarCheck, title: 'Timely Commissions', description: 'Accurate, on-time residual payments you can count on every month.' },
+  { Icon: Headphones, title: '24/7 Technical Support', description: 'Round-the-clock support for you and your merchants — no extra charge.' },
+  { Icon: Landmark, title: 'Multiple Bank Relationships', description: 'Processing through Elavon, Wells Fargo, Esquire Bank, and Commercial Bank of CA.' },
+  { Icon: Megaphone, title: 'Marketing Materials', description: 'Co-branded collateral, rate sheets, and digital assets ready to use.' },
+];
+
+const stats = [
+  { value: '24/7', label: 'Live Support' },
+  { value: '4', label: 'Bank Partners' },
+  { value: '95%', label: 'Approval Rate' },
+  { value: 'Monthly', label: 'On-Time Residuals' },
 ];
 
 export default function PartnersPage() {
   return (
     <>
-      <Hero
-        title="Why Compete With Us When You Can Join Us?"
-        subtitle="Build a recurring income stream as a National e-Payment ISO partner. We provide everything you need to succeed."
-        ctaText="Become a Partner"
-        ctaHref="#apply"
-      />
-
-      <Section background="light">
+      {/* Hero */}
+      <section className="premium-hero relative overflow-hidden py-20 text-white md:py-28">
+        <div aria-hidden="true" className="hero-grid absolute inset-0 opacity-70" />
+        <div aria-hidden="true" className="aurora-blob animate-aurora -left-16 top-4 h-80 w-80" style={{ background: 'rgba(159,232,112,0.25)' }} />
+        <div aria-hidden="true" className="aurora-blob animate-aurora right-0 top-24 h-96 w-96" style={{ background: 'rgba(36,123,184,0.32)', animationDuration: '24s' }} />
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold text-navy mb-4">ISO Program Benefits</h2>
-            <p className="text-gray-600">
-              Our ISO program is designed to give you maximum earning potential with the support, tools,
-              and bank relationships to close more deals and retain more merchants.
+          <div className="relative max-w-3xl">
+            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-lime/25 bg-lime/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-lime">
+              <span className="pulse-dot relative inline-block h-2 w-2 rounded-full bg-lime text-lime" />
+              ISO Partner Program
+            </span>
+            <h1 className="mb-5 text-[2.5rem] font-bold leading-[1.05] md:text-[3.25rem]">
+              Why compete with us when you can <span className="text-gradient-lime">join us?</span>
+            </h1>
+            <p className="mb-8 max-w-xl text-lg leading-relaxed text-white/70">
+              Build a recurring income stream as a National e-Payment ISO partner. We bring the brand,
+              the bank relationships, and the back-office — you bring the merchants.
             </p>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <a
+                href="#apply"
+                className="btn-shine relative inline-flex items-center justify-center gap-2 rounded-full bg-lime px-8 py-4 text-base font-bold text-navy shadow-[0_12px_34px_-8px_rgba(159,232,112,0.85)] transition-transform hover:-translate-y-0.5"
+              >
+                Become a Partner <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+              </a>
+              <a
+                href="tel:+18664369022"
+                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/20 px-8 py-4 text-base font-semibold text-white transition-colors hover:border-lime hover:bg-lime/10"
+              >
+                <Phone className="h-4 w-4" strokeWidth={2.2} /> (866) 436-9022
+              </a>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {benefits.map((benefit) => (
-              <Card key={benefit.title} background="white" border="left" borderColor="teal">
-                <h4 className="text-lg font-bold text-navy mb-2">{benefit.title}</h4>
-                <p className="text-gray-600 text-sm">{benefit.description}</p>
-              </Card>
+          {/* Stat strip */}
+          <div className="relative z-10 mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-4">
+            {stats.map((s) => (
+              <div key={s.label} className="bg-white/[0.06] px-6 py-5 text-center backdrop-blur-sm">
+                <div className="font-display text-2xl font-bold text-lime md:text-3xl">{s.value}</div>
+                <div className="mt-1 text-xs uppercase tracking-wide text-white/55">{s.label}</div>
+              </div>
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
-      {/* Featured Partner Story */}
-      <Section background="navy">
+      {/* Benefits */}
+      <section className="bg-surface py-20 md:py-24">
         <Container>
-          <div className="max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center gap-10">
-              {/* Photo */}
-              <div className="shrink-0 flex flex-col items-center gap-3">
-                <div className="relative">
-                  <div className="absolute inset-0 rounded-full bg-teal/30 blur-xl scale-110" />
-                  <Image
-                    src="https://randomuser.me/api/portraits/men/75.jpg"
-                    alt="Marcus Webb, ISO Partner"
-                    width={140}
-                    height={140}
-                    className="relative rounded-full object-cover ring-4 ring-teal/40"
-                  />
-                </div>
-                <div className="text-center">
-                  <p className="text-white font-semibold text-sm">Marcus Webb</p>
-                  <p className="text-teal text-xs">ISO Partner · Atlanta, GA</p>
-                  <p className="text-gray-400 text-xs mt-0.5">12 years in merchant services</p>
-                </div>
-              </div>
+          <RevealSection>
+            <SectionHeading
+              align="center"
+              eyebrow="Program Benefits"
+              title="Everything you need to win and keep merchants"
+              subtitle="Maximum earning potential, backed by the support, tools, and bank relationships to close more deals."
+              className="mb-14"
+            />
+          </RevealSection>
 
-              {/* Quote */}
-              <div>
-                <svg className="w-8 h-8 text-teal/40 mb-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <blockquote className="text-white text-xl md:text-2xl font-light leading-relaxed mb-6 italic">
-                  I was doing $40K a month in residuals with my old processor. Six months after moving my portfolio to National e-Payment I was at $67K. The back-office support made the difference — they handle what I used to spend half my week doing.
-                </blockquote>
-                <div className="flex items-center gap-2">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-teal" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {benefits.map(({ Icon, title, description }, i) => (
+              <RevealSection key={title} delay={(i % 3) * 80}>
+                <div className="card-lift border-glow group h-full rounded-card border border-gray-200/70 bg-white p-6">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-forest to-navy text-lime">
+                    <Icon className="h-6 w-6" strokeWidth={1.6} />
+                  </div>
+                  <h3 className="mb-1.5 text-lg font-bold text-navy">{title}</h3>
+                  <p className="text-sm leading-relaxed text-slate">{description}</p>
                 </div>
+              </RevealSection>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Testimonial */}
+      <section className="premium-hero relative overflow-hidden py-20 text-white md:py-24">
+        <div aria-hidden="true" className="hero-grid absolute inset-0 opacity-60" />
+        <Container>
+          <div className="relative mx-auto max-w-4xl">
+            <Quote aria-hidden="true" className="mb-6 h-10 w-10 text-lime/50" strokeWidth={1.5} />
+            <blockquote className="text-2xl font-light leading-relaxed text-white md:text-[1.7rem]">
+              I was doing $40K a month in residuals with my old processor. Six months after moving my
+              portfolio to National e-Payment I was at <span className="font-semibold text-lime">$67K</span>.
+              The back-office support made the difference — they handle what I used to spend half my week doing.
+            </blockquote>
+            <div className="mt-8 flex items-center gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-lime/15 font-bold text-lime">MW</div>
+              <div>
+                <p className="font-semibold text-white">Marcus Webb</p>
+                <p className="text-sm text-white/55">ISO Partner · Atlanta, GA · 12 years in merchant services</p>
+              </div>
+              <div className="ml-auto hidden gap-0.5 text-lime sm:flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-current" strokeWidth={0} />
+                ))}
               </div>
             </div>
           </div>
         </Container>
-      </Section>
+      </section>
 
-      {/* Bank Partners */}
-      <Section background="white">
+      {/* Banking relationships */}
+      <section className="bg-white py-16 md:py-20">
         <Container>
-          <h2 className="text-3xl font-bold text-navy mb-4 text-center">Our Banking Relationships</h2>
-          <p className="text-gray-600 text-center mb-10 max-w-xl mx-auto">
-            National e-Payment is a registered MSP/ISO with multiple top-tier financial institutions,
-            giving you and your merchants access to the most competitive processing rates.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <RevealSection>
+            <SectionHeading
+              align="center"
+              eyebrow="Bank Relationships"
+              title="Registered with top-tier institutions"
+              subtitle="Multiple bank relationships give you and your merchants the most competitive processing rates."
+              className="mb-10"
+            />
+          </RevealSection>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {['Elavon (U.S. Bancorp)', 'Wells Fargo', 'Esquire Bank', 'Commercial Bank of CA'].map((bank) => (
-              <div key={bank} className="bg-light-bg rounded-lg p-6 text-center font-semibold text-navy text-sm">
+              <div key={bank} className="rounded-card border border-gray-200/70 bg-surface p-6 text-center text-sm font-semibold text-navy">
                 {bank}
               </div>
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
-      {/* ISO Login */}
-      <Section background="light">
+      {/* Apply + form */}
+      <section id="apply" className="scroll-mt-24 bg-surface py-20 md:py-24">
         <Container>
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-navy mb-4">Already a Partner?</h2>
-            <p className="text-gray-600 mb-8">
-              Access your portfolio reporting, residuals, and merchant management tools.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://mi.isoaccess.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-navy text-white font-semibold px-8 py-3 rounded-lg hover:bg-navy-light transition-colors"
-              >
-                ISO Login
-              </a>
-              <a
-                href="https://www.youraccessone.com/64_ms_login.aspx"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-teal text-navy font-semibold px-8 py-3 rounded-lg hover:bg-teal-dark transition-colors"
-              >
-                Merchant Login
-              </a>
-            </div>
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
+            <RevealSection>
+              <SectionHeading
+                eyebrow="Get Started"
+                title="Apply to become a partner"
+                subtitle="Fill out the form and a dedicated business consultant will contact you within one business day."
+                className="mb-8"
+              />
+              <ul className="space-y-4">
+                {[
+                  'No cost to join — keep your current book of business',
+                  'Industry-leading residual splits and upfront bonuses',
+                  'White-glove onboarding and merchant migration',
+                  'A real human on your account, available 24/7',
+                ].map((point) => (
+                  <li key={point} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime/20">
+                      <BadgeCheck className="h-3.5 w-3.5 text-forest" strokeWidth={2.5} />
+                    </span>
+                    <span className="text-slate">{point}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 rounded-card border border-gray-200/70 bg-white p-6">
+                <p className="text-sm font-semibold text-navy">Already a partner?</p>
+                <div className="mt-3 flex flex-col gap-3 sm:flex-row">
+                  <a href="https://mi.isoaccess.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-navy px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy-light">
+                    ISO Login
+                  </a>
+                  <a href="https://www.youraccessone.com/64_ms_login.aspx" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full border-2 border-navy/20 px-6 py-2.5 text-sm font-semibold text-navy transition-colors hover:border-navy hover:bg-navy hover:text-white">
+                    Merchant Login
+                  </a>
+                </div>
+              </div>
+            </RevealSection>
+
+            <RevealSection delay={100}>
+              <PartnerForm />
+            </RevealSection>
           </div>
         </Container>
-      </Section>
-
-      {/* Apply Section */}
-      <Section background="white" id="apply">
-        <Container>
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-navy mb-2 text-center">Apply to Become a Partner</h2>
-            <p className="text-gray-600 text-center mb-8">
-              Fill out the form below and a dedicated business consultant will contact you within one business day.
-            </p>
-
-            <div className="bg-light-bg p-8 rounded-lg">
-              <form className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-semibold text-navy mb-1">First Name</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal bg-white"
-                      placeholder="First name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-navy mb-1">Last Name</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal bg-white"
-                      placeholder="Last name"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-navy mb-1">Company / Organization</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal bg-white"
-                    placeholder="Your company name"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-navy mb-1">Email Address</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal bg-white"
-                    placeholder="you@company.com"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-navy mb-1">Phone Number</label>
-                  <input
-                    type="tel"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal bg-white"
-                    placeholder="(555) 000-0000"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-navy mb-1">Current Book of Business (merchants)</label>
-                  <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal bg-white">
-                    <option value="">Select range</option>
-                    <option value="0">Just starting out</option>
-                    <option value="1-10">1 – 10 merchants</option>
-                    <option value="10-50">10 – 50 merchants</option>
-                    <option value="50-200">50 – 200 merchants</option>
-                    <option value="200+">200+ merchants</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-navy mb-1">Tell us about your business</label>
-                  <textarea
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal bg-white h-28"
-                    placeholder="What markets or industries do you serve?"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-teal text-navy font-semibold py-3 rounded-lg hover:bg-teal-dark transition-colors text-lg"
-                >
-                  Submit Partner Application
-                </button>
-              </form>
-            </div>
-          </div>
-        </Container>
-      </Section>
+      </section>
 
       <CTASection
-        heading="Questions About the Program?"
-        subheading="Call us at (866) 436-9022 or email sales@nationalepayment.com"
+        heading="Questions about the program?"
+        subheading="Call (866) 436-9022 or send us a note — a partner consultant will walk you through everything."
         ctaText="Contact Us"
         ctaHref="/contact"
       />
