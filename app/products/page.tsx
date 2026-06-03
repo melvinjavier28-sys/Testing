@@ -3,6 +3,7 @@ import SectionHeading from '@/src/components/common/SectionHeading';
 import RevealSection from '@/src/components/common/RevealSection';
 import CTASection from '@/src/components/sections/CTASection';
 import ProductImage from '@/src/components/products/ProductImage';
+import FeaturedDuoPricer from '@/src/components/products/FeaturedDuoPricer';
 import { brands } from '@/src/content/equipment';
 import { ArrowRight, ArrowUpRight, ShieldCheck, Headphones, BadgeDollarSign, Tag } from 'lucide-react';
 
@@ -49,6 +50,9 @@ export default function ProductsPage() {
           </div>
         </Container>
       </section>
+
+      {/* Featured in-house product */}
+      <FeaturedDuoPricer />
 
       {/* Brand sections */}
       {brands.map((brand, bi) => (
@@ -98,43 +102,6 @@ export default function ProductsPage() {
           </Container>
         </section>
       ))}
-
-      {/* Duo Pricer */}
-      <section className="bg-white py-16 md:py-20">
-        <Container>
-          <RevealSection>
-            <div className="border-glow relative overflow-hidden rounded-card border border-gray-200/70 bg-gradient-to-br from-navy to-navy-900 p-8 text-white md:p-12">
-              <div aria-hidden="true" className="aurora-blob animate-aurora -right-10 -top-10 h-60 w-60" style={{ background: 'rgba(159,232,112,0.2)' }} />
-              <div className="relative grid items-center gap-8 md:grid-cols-[1.4fr_1fr]">
-                <div>
-                  <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-lime/25 bg-lime/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-lime">
-                    <Tag className="h-3.5 w-3.5" /> Now available for purchase
-                  </span>
-                  <h2 className="mb-3 text-3xl font-bold md:text-4xl">Duo Pricer</h2>
-                  <p className="max-w-lg text-white/70">
-                    The digital labeling device that prints dual-priced labels in seconds and does the
-                    cash-vs-card math for you — built for retail and convenience stores.
-                  </p>
-                  <a
-                    href="https://duopricer.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-shine relative mt-7 inline-flex items-center gap-2 rounded-full bg-lime px-7 py-3.5 text-base font-bold text-navy shadow-[0_12px_34px_-8px_rgba(159,232,112,0.85)] transition-transform hover:-translate-y-0.5"
-                  >
-                    Buy at duopricer.com
-                    <ArrowUpRight className="h-4 w-4" strokeWidth={2.5} />
-                  </a>
-                </div>
-                <div className="hidden md:flex justify-center">
-                  <div className="flex h-40 w-40 items-center justify-center rounded-3xl bg-white/[0.06] ring-1 ring-white/15">
-                    <Tag className="h-16 w-16 text-lime" strokeWidth={1.2} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </RevealSection>
-        </Container>
-      </section>
 
       {/* Why buy from us */}
       <section className="bg-surface py-16">
