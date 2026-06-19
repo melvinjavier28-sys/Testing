@@ -341,13 +341,13 @@ export default function Home() {
         <Container className="relative z-10">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
             <RevealSection className="relative">
-              <div className="overflow-hidden rounded-3xl shadow-[0_30px_60px_-20px_rgba(15,58,95,0.45)]">
+              <div className="aspect-[4/3] overflow-hidden rounded-3xl shadow-[0_30px_60px_-20px_rgba(15,58,95,0.45)]">
                 <Image
-                  src="/people/hero-lifestyle.jpg"
-                  alt="A small-business owner in their shop"
-                  width={900}
-                  height={760}
-                  className="h-full w-full object-cover"
+                  src="/people/owner-foodtruck.jpg"
+                  alt="A food truck owner standing in front of his business"
+                  width={1000}
+                  height={750}
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
               <div className="absolute -bottom-5 -right-3 hidden rounded-2xl border border-gray-100 bg-white px-5 py-3 shadow-xl sm:block">
