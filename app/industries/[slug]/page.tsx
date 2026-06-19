@@ -45,6 +45,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         subtitle={industry.fullDescription}
         ctaText="Apply Now"
         ctaHref="/signup"
+        backdrop={slug}
       />
 
       {/* Pain Points & Solutions */}

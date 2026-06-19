@@ -1,4 +1,6 @@
 import Container from '@/src/components/common/Container';
+import HeroBackdrop from '@/src/components/sections/HeroBackdrop';
+import { getHeroBackdrop } from '@/src/content/heroBackdrops';
 import { ArrowRight } from 'lucide-react';
 
 interface HeroProps {
@@ -7,7 +9,8 @@ interface HeroProps {
   eyebrow?: string;
   ctaText?: string;
   ctaHref?: string;
-  backgroundImage?: string;
+  /** Named industry/page backdrop set (see heroBackdrops). Omit for the generic collage. */
+  backdrop?: string;
 }
 
 export default function Hero({
@@ -16,9 +19,11 @@ export default function Hero({
   eyebrow,
   ctaText = 'Get Started Free',
   ctaHref = '/signup',
+  backdrop,
 }: HeroProps) {
   return (
     <section className="premium-hero relative overflow-hidden py-16 text-white md:py-24">
+      <HeroBackdrop images={[...getHeroBackdrop(backdrop)]} opacity={0.26} />
       <div aria-hidden="true" className="hero-grid absolute inset-0 opacity-70" />
       <div
         aria-hidden="true"

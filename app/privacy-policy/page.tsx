@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
       <Container>
         <div className="max-w-3xl mx-auto prose prose-headings:text-navy prose-a:text-teal">
           <h1 className="text-4xl font-bold text-navy mb-2">Privacy Policy</h1>
-          <p className="text-gray-500 text-sm mb-10">Last updated: 2024</p>
+          <p className="text-gray-500 text-sm mb-10">Last updated: June 2026</p>
 
           <h2 className="text-2xl font-bold text-navy mt-10 mb-4">1. Information We Collect</h2>
           <p className="text-gray-700 mb-4">

@@ -18,6 +18,12 @@ const benefits = [
   'PCI compliance assistance',
 ];
 
+const onboardingScatter = [
+  { src: '/hero/industries/retail-pos.jpg', className: '-top-12 right-[6%] h-56 w-72' },
+  { src: '/hero/industries/support.jpg', className: 'bottom-[8%] -left-12 h-56 w-72' },
+  { src: '/hero/industries/restaurant.jpg', className: '-bottom-12 right-[26%] h-48 w-60' },
+];
+
 export default function SignupPage() {
   return (
     <>
@@ -28,7 +34,7 @@ export default function SignupPage() {
         ctaHref="#apply"
       />
 
-      <Section background="light">
+      <Section background="light" dots scatter={onboardingScatter} scatterOpacity={0.08}>
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Benefits */}

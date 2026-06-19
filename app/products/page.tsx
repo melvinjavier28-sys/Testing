@@ -2,10 +2,22 @@ import Container from '@/src/components/common/Container';
 import SectionHeading from '@/src/components/common/SectionHeading';
 import RevealSection from '@/src/components/common/RevealSection';
 import CTASection from '@/src/components/sections/CTASection';
+import HeroBackdrop from '@/src/components/sections/HeroBackdrop';
+import { getHeroBackdrop } from '@/src/content/heroBackdrops';
+import SectionDecor from '@/src/components/common/SectionDecor';
+import ScatterBackdrop from '@/src/components/common/ScatterBackdrop';
 import ProductImage from '@/src/components/products/ProductImage';
 import FeaturedDuoPricer from '@/src/components/products/FeaturedDuoPricer';
 import { brands } from '@/src/content/equipment';
 import { ArrowRight, ArrowUpRight, ShieldCheck, Headphones, BadgeDollarSign, Tag } from 'lucide-react';
+
+// Ambient "where our hardware works" scenes for the closing section.
+const whereScatter = [
+  { src: '/hero/industries/restaurant.jpg', className: '-top-10 left-[5%] h-52 w-64' },
+  { src: '/hero/industries/retail.jpg', className: 'top-[20%] -right-12 h-56 w-72' },
+  { src: '/hero/industries/grocery.jpg', className: '-bottom-10 left-[30%] h-52 w-64' },
+  { src: '/hero/industries/gas-station.jpg', className: 'bottom-[8%] right-[8%] h-48 w-60' },
+];
 
 export const metadata = {
   title: 'Payment Terminals & Equipment | National e-Payment',
@@ -20,6 +32,7 @@ export default function ProductsPage() {
     <>
       {/* Hero */}
       <section className="premium-hero relative overflow-hidden py-16 text-white md:py-20">
+        <HeroBackdrop images={[...getHeroBackdrop('products')]} opacity={0.24} />
         <div aria-hidden="true" className="hero-grid absolute inset-0 opacity-70" />
         <div aria-hidden="true" className="aurora-blob animate-aurora -left-16 top-0 h-72 w-72" style={{ background: 'rgba(159,232,112,0.22)' }} />
         <Container>
@@ -59,9 +72,10 @@ export default function ProductsPage() {
         <section
           key={brand.slug}
           id={brand.slug}
-          className={`scroll-mt-24 py-16 md:py-20 ${bi % 2 === 0 ? 'bg-surface' : 'bg-white'}`}
+          className={`relative overflow-hidden scroll-mt-24 py-16 md:py-20 ${bi % 2 === 0 ? 'bg-surface' : 'bg-white'}`}
         >
-          <Container>
+          <SectionDecor dots glow={bi % 2 === 0 ? 'lime' : 'navy'} />
+          <Container className="relative z-10">
             <RevealSection>
               <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <SectionHeading eyebrow={`${brand.products.length} models`} title={brand.name} subtitle={brand.tagline} />
@@ -104,8 +118,10 @@ export default function ProductsPage() {
       ))}
 
       {/* Why buy from us */}
-      <section className="bg-surface py-16">
-        <Container>
+      <section className="relative overflow-hidden bg-surface py-16">
+        <SectionDecor glow="both" />
+        <ScatterBackdrop tiles={whereScatter} opacity={0.08} />
+        <Container className="relative z-10">
           <RevealSection>
             <SectionHeading
               align="center"

@@ -16,15 +16,22 @@ export const metadata = {
   description: 'Get in touch with National e-Payment sales and support teams.',
 };
 
+const supportScatter = [
+  { src: '/hero/industries/support.jpg', className: '-top-12 right-[8%] h-56 w-72' },
+  { src: '/hero/industries/team.jpg', className: 'bottom-[6%] -left-12 h-56 w-72' },
+  { src: '/hero/industries/partners.jpg', className: '-bottom-10 right-[24%] h-48 w-60' },
+];
+
 export default function ContactPage() {
   return (
     <>
       <Hero
         title="Get In Touch"
         subtitle="We're here to help. Reach out to our sales or support team."
+        backdrop="contact"
       />
 
-      <Section background="light">
+      <Section background="light" dots scatter={supportScatter} scatterOpacity={0.09}>
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <Card background="white" border="left" borderColor="teal">

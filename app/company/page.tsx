@@ -9,15 +9,22 @@ export const metadata = {
   description: 'Learn about National e-Payment and our mission to serve businesses.',
 };
 
+const teamScatter = [
+  { src: '/hero/industries/team.jpg', className: '-top-12 right-[6%] h-56 w-72' },
+  { src: '/hero/industries/support.jpg', className: 'top-[26%] -left-12 h-56 w-72' },
+  { src: '/hero/industries/partners.jpg', className: '-bottom-12 right-[18%] h-52 w-64' },
+];
+
 export default function CompanyPage() {
   return (
     <>
       <Hero
         title="About National e-Payment"
         subtitle="Trusted payment solutions for businesses of all sizes"
+        backdrop="company"
       />
 
-      <Section background="white">
+      <Section background="white" dots scatter={teamScatter} scatterOpacity={0.09}>
         <Container>
           <div className="max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl font-bold text-navy mb-6">Our Mission</h2>

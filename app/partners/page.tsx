@@ -2,6 +2,8 @@ import Container from '@/src/components/common/Container';
 import SectionHeading from '@/src/components/common/SectionHeading';
 import RevealSection from '@/src/components/common/RevealSection';
 import CTASection from '@/src/components/sections/CTASection';
+import HeroBackdrop from '@/src/components/sections/HeroBackdrop';
+import { getHeroBackdrop } from '@/src/content/heroBackdrops';
 import PartnerForm from '@/src/components/forms/PartnerForm';
 import {
   BadgeCheck,
@@ -30,7 +32,7 @@ export const metadata = {
 const benefits = [
   { Icon: BadgeCheck, title: 'Trusted Brand Name', description: 'Leverage a recognized name in merchant services to open doors with prospects.' },
   { Icon: Users, title: 'Dedicated Business Consultants', description: 'Your own dedicated rep to help close deals and support your portfolio.' },
-  { Icon: CreditCard, title: 'Full Product Suite', description: 'Offer terminals, ATMs, gift cards, and more — a complete payments lineup.' },
+  { Icon: CreditCard, title: 'Full Product Suite', description: 'Offer terminals, POS systems, gift cards, and more — a complete payments lineup.' },
   { Icon: GraduationCap, title: 'Professional Training', description: 'Train-the-trainer tools and resources so your team hits the ground running.' },
   { Icon: BadgeDollarSign, title: 'Competitive Compensation', description: 'Industry-leading residuals and upfront bonuses for your sales.' },
   { Icon: SlidersHorizontal, title: 'Flexible Pricing', description: 'Set your own pricing within our program guidelines to stay competitive.' },
@@ -53,6 +55,7 @@ export default function PartnersPage() {
     <>
       {/* Hero */}
       <section className="premium-hero relative overflow-hidden py-20 text-white md:py-28">
+        <HeroBackdrop images={[...getHeroBackdrop('partners')]} opacity={0.24} />
         <div aria-hidden="true" className="hero-grid absolute inset-0 opacity-70" />
         <div aria-hidden="true" className="aurora-blob animate-aurora -left-16 top-4 h-80 w-80" style={{ background: 'rgba(159,232,112,0.25)' }} />
         <div aria-hidden="true" className="aurora-blob animate-aurora right-0 top-24 h-96 w-96" style={{ background: 'rgba(36,123,184,0.32)', animationDuration: '24s' }} />

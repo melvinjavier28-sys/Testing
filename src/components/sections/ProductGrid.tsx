@@ -28,12 +28,12 @@ export default function ProductGrid({ title, subtitle, products }: ProductGridPr
             <a
               key={product.id}
               href={product.href}
-              className="card-lift bg-forest text-white p-7 rounded-card flex flex-col gap-3 hover:bg-[#1e4a00] transition-colors group"
+              className="card-lift bg-navy text-white p-7 rounded-card flex flex-col gap-3 hover:bg-navy-light transition-colors group"
             >
               <h4 className="text-lg font-bold">{product.title}</h4>
-              <p className="text-white/65 text-sm leading-relaxed flex-1">{product.description}</p>
+              <p className="text-gray-300 text-sm leading-relaxed flex-1">{product.description}</p>
               <span className="inline-flex items-center gap-1 text-lime text-sm font-semibold">
-                Explore <ArrowRight className="w-4 h-4" />
+                View Products <ArrowRight className="w-4 h-4" />
               </span>
             </a>
           ))}

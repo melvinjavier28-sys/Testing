@@ -5,6 +5,8 @@ import RevealSection from '@/src/components/common/RevealSection';
 import AnimatedCounter from '@/src/components/common/AnimatedCounter';
 import Testimonials from '@/src/components/sections/Testimonials';
 import DiagonalCut from '@/src/components/common/DiagonalCut';
+import SectionDecor from '@/src/components/common/SectionDecor';
+import ScatterBackdrop from '@/src/components/common/ScatterBackdrop';
 import SectionHeading from '@/src/components/common/SectionHeading';
 import Marquee from '@/src/components/common/Marquee';
 import PaymentVisual from '@/src/components/sections/PaymentVisual';
@@ -84,12 +86,49 @@ const valueProps = [
   'Instant approval decision',
 ];
 
+// Ambient location scenes drifting through the Industries section (faded soft blobs).
+const industryScatter = [
+  { src: '/hero/industries/grocery.jpg', className: '-top-12 left-[6%] h-56 w-72' },
+  { src: '/hero/industries/gas-station.jpg', className: 'top-[22%] -right-12 h-60 w-80' },
+  { src: '/hero/industries/restaurant.jpg', className: '-bottom-12 left-[2%] h-56 w-72' },
+  { src: '/hero/industries/hotel.jpg', className: 'bottom-[6%] right-[10%] h-52 w-64' },
+  { src: '/hero/industries/retail.jpg', className: 'top-[14%] left-[40%] h-48 w-60' },
+  { src: '/hero/industries/ecommerce.jpg', className: '-top-10 right-[26%] h-44 w-56' },
+];
+
+// Floating hardware silhouettes for the Products / "Hardware & Software" section.
+const productScatter = [
+  { src: '/products/pax/a920-max.png', className: '-top-8 right-[22%] h-48 w-48', fit: 'contain' as const },
+  { src: '/products/clover/go.png', className: 'top-[30%] -right-10 h-52 w-52', fit: 'contain' as const },
+  { src: '/products/valor/vp550.png', className: '-bottom-8 right-[12%] h-48 w-48', fit: 'contain' as const },
+  { src: '/products/pax/a80.png', className: 'bottom-[2%] left-[6%] h-44 w-44', fit: 'contain' as const },
+  { src: '/products/valor/rckt.png', className: 'top-[18%] left-[2%] h-40 w-40', fit: 'contain' as const },
+  { src: '/products/pax/a800.png', className: 'top-[52%] right-[34%] h-40 w-40', fit: 'contain' as const },
+  { src: '/products/valor/vp300.png', className: '-bottom-6 left-[36%] h-44 w-44', fit: 'contain' as const },
+];
+
 /* ── Page ───────────────────────────────────────────────── */
 export default function Home() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="premium-hero relative overflow-hidden text-white">
+        {/* Faded transaction collage — English scenes, VP800 behind the logo */}
+        <div aria-hidden="true" className="absolute inset-0 opacity-[0.32]">
+          <div className="grid h-full grid-cols-1 sm:grid-cols-3">
+            <div className="relative hidden sm:block">
+              <Image src="/hero/transaction.jpg" alt="" fill sizes="34vw" className="object-cover grayscale" />
+            </div>
+            <div className="relative">
+              <Image src="/hero/valor-vp800.png" alt="" fill sizes="34vw" className="object-contain object-center grayscale" priority />
+            </div>
+            <div className="relative hidden sm:block">
+              <Image src="/hero/store-en.jpg" alt="" fill sizes="34vw" className="object-cover grayscale" />
+            </div>
+          </div>
+        </div>
+        {/* Navy scrim keeps the copy crisp over the photos */}
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-navy-950/55 via-navy-900/55 to-navy-950/85" />
         {/* Aurora blobs */}
         <div aria-hidden="true" className="aurora-blob animate-aurora -left-20 top-0 h-80 w-80" style={{ background: 'rgba(159,232,112,0.28)' }} />
         <div aria-hidden="true" className="aurora-blob animate-aurora right-0 top-24 h-96 w-96" style={{ background: 'rgba(36,123,184,0.35)', animationDuration: '24s' }} />
@@ -97,22 +136,29 @@ export default function Home() {
         <div aria-hidden="true" className="hero-grid absolute inset-0" />
 
         <Container>
-          <div className="relative pt-5 pb-7 md:pt-7 md:pb-8">
+          <div className="relative pt-8 pb-7 md:pt-10 md:pb-8">
             {/* Brand crown — centered above the headline */}
             <div className="flex flex-col items-center text-center">
-              <div className="relative mb-4">
-                <div aria-hidden="true" className="absolute -inset-6 rounded-[2.25rem] bg-lime/25 blur-2xl" />
-                <div className="relative rounded-2xl bg-white/95 px-7 py-5 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.6)] ring-1 ring-white/60 sm:px-9">
-                  <Image
-                    src="/logo.png"
-                    alt="National e-Payment"
-                    width={1184}
-                    height={383}
-                    className="h-12 w-auto object-contain sm:h-16"
-                    priority
-                    unoptimized
-                  />
-                </div>
+              <div className="relative mb-6">
+                {/* Soft spotlight blends the logo into the hero — no hard plate */}
+                <div
+                  aria-hidden="true"
+                  className="absolute -inset-x-28 -inset-y-16"
+                  style={{
+                    background:
+                      'radial-gradient(60% 72% at 50% 50%, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.55) 46%, rgba(255,255,255,0.22) 68%, rgba(255,255,255,0) 86%)',
+                  }}
+                />
+                <div aria-hidden="true" className="absolute -inset-20 rounded-full bg-lime/12 blur-3xl" />
+                <Image
+                  src="/logo.png"
+                  alt="National e-Payment"
+                  width={1184}
+                  height={383}
+                  className="relative h-40 w-auto max-w-full object-contain drop-shadow-[0_0_14px_rgba(255,255,255,0.5)] sm:h-56 md:h-64"
+                  priority
+                  unoptimized
+                />
               </div>
               <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-lime">
                 <span className="pulse-dot relative inline-block h-2 w-2 rounded-full bg-lime text-lime" />
@@ -212,8 +258,10 @@ export default function Home() {
       <DiagonalCut from="navy-light" to="light" />
 
       {/* ── Industries ───────────────────────────────────── */}
-      <section id="services" className="scroll-mt-24 bg-surface py-20 md:py-24">
-        <Container>
+      <section id="services" className="scroll-mt-24 relative overflow-hidden bg-surface py-20 md:py-24">
+        <SectionDecor dots glow="both" />
+        <ScatterBackdrop tiles={industryScatter} opacity={0.1} />
+        <Container className="relative z-10">
           <RevealSection>
             <SectionHeading
               eyebrow="Who We Serve"
@@ -245,8 +293,9 @@ export default function Home() {
       </section>
 
       {/* ── Why we're different ───────────────────────────── */}
-      <section className="bg-white py-20 md:py-24">
-        <Container>
+      <section className="relative overflow-hidden bg-white py-20 md:py-24">
+        <SectionDecor dots glow="lime" />
+        <Container className="relative z-10">
           <RevealSection>
             <SectionHeading
               eyebrow="The Difference"
@@ -285,8 +334,10 @@ export default function Home() {
       <Testimonials />
 
       {/* ── Products ─────────────────────────────────────── */}
-      <section id="products" className="bg-white py-20 md:py-24">
-        <Container>
+      <section id="products" className="relative overflow-hidden bg-white py-20 md:py-24">
+        <SectionDecor glow="navy" />
+        <ScatterBackdrop tiles={productScatter} opacity={0.14} />
+        <Container className="relative z-10">
           <RevealSection>
             <SectionHeading
               eyebrow="Hardware & Software"
@@ -330,6 +381,10 @@ export default function Home() {
 
       {/* ── Stats (dark band) ────────────────────────────── */}
       <section className="premium-hero relative overflow-hidden py-20 text-white md:py-24">
+        {/* Faded Valor VP800 brand terminal (in hand) */}
+        <div aria-hidden="true" className="absolute -right-4 top-0 hidden h-full w-1/2 opacity-[0.18] sm:block lg:w-1/3">
+          <Image src="/hero/valor-vp800.png" alt="" fill sizes="40vw" className="object-contain object-right" />
+        </div>
         <div aria-hidden="true" className="hero-grid absolute inset-0 opacity-70" />
         <Container>
           <RevealSection>

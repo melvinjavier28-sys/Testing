@@ -10,6 +10,15 @@ export const metadata: Metadata = {
   description: 'Payment solutions tailored for your industry.',
 };
 
+const locationScatter = [
+  { src: '/hero/industries/grocery.jpg', className: '-top-12 left-[6%] h-56 w-72' },
+  { src: '/hero/industries/gas-station.jpg', className: 'top-[24%] -right-12 h-60 w-80' },
+  { src: '/hero/industries/restaurant.jpg', className: '-bottom-12 left-[3%] h-56 w-72' },
+  { src: '/hero/industries/hotel.jpg', className: 'bottom-[8%] right-[10%] h-52 w-64' },
+  { src: '/hero/industries/retail.jpg', className: 'top-[16%] left-[42%] h-48 w-60' },
+  { src: '/hero/industries/ecommerce.jpg', className: '-top-10 right-[28%] h-44 w-56' },
+];
+
 export default function IndustriesPage() {
   const industries = getIndustriesForHomepage();
 
@@ -20,7 +29,7 @@ export default function IndustriesPage() {
         subtitle="Tailored payment processing for your specific business needs"
       />
 
-      <Section background="light">
+      <Section background="light" dots scatter={locationScatter} scatterOpacity={0.1}>
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {industries.map((industry) => (

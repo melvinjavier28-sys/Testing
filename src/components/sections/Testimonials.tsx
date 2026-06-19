@@ -1,6 +1,7 @@
 import SectionHeading from '@/src/components/common/SectionHeading';
 import RevealSection from '@/src/components/common/RevealSection';
 import Container from '@/src/components/common/Container';
+import SectionDecor from '@/src/components/common/SectionDecor';
 import { Quote, Star } from 'lucide-react';
 
 type AvatarColor = 'bg-navy' | 'bg-navy-light' | 'bg-teal-dark';
@@ -47,14 +48,16 @@ const testimonials: Testimonial[] = [
 export default function Testimonials() {
   return (
     <section className="py-20 md:py-24 bg-surface relative overflow-hidden">
+      {/* Soft brand glow for depth */}
+      <SectionDecor glow="both" />
       {/* Ghost quote decoration */}
       <Quote
         aria-hidden="true"
-        className="absolute -bottom-10 right-0 h-72 w-72 text-navy/[0.03] -scale-x-100"
+        className="absolute -bottom-10 right-0 h-72 w-72 text-navy/[0.03] -scale-x-100 z-[1]"
         strokeWidth={1}
       />
 
-      <Container>
+      <Container className="relative z-10">
         <RevealSection>
           <SectionHeading
             eyebrow="Customer Stories"

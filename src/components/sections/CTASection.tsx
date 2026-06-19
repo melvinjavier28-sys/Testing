@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Button from '@/src/components/common/Button';
 import Container from '@/src/components/common/Container';
 import { ArrowRight, Phone } from 'lucide-react';
@@ -19,6 +20,10 @@ export default function CTASection({
     <section className="relative overflow-hidden bg-navy-950 text-white py-24">
       {/* Aurora + grid backdrop */}
       <div aria-hidden="true" className="absolute inset-0 premium-hero opacity-95" />
+      <div aria-hidden="true" className="absolute inset-0">
+        <Image src="/hero/transaction.jpg" alt="" fill sizes="100vw" className="object-cover object-center opacity-[0.14]" />
+      </div>
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-navy-950/70 via-navy-950/60 to-navy-950/85" />
       <div aria-hidden="true" className="absolute inset-0 hero-grid opacity-60" />
       <div
         aria-hidden="true"

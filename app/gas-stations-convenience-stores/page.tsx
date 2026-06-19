@@ -17,6 +17,7 @@ export default function GasStationsPage() {
         subtitle="Speed and customer loyalty are your top concerns — and ours too."
         ctaText="Get Started Free"
         ctaHref="/signup"
+        backdrop="gas-stations"
       />
 
       <Section background="white">
@@ -90,7 +91,7 @@ export default function GasStationsPage() {
               {
                 title: 'POS Terminals',
                 description: 'EMV-certified countertop terminals for inside checkout. Contactless, swipe, and chip.',
-                href: '/products/terminals',
+                href: '/products/pos-terminals',
               },
               {
                 title: 'Wireless Terminals',

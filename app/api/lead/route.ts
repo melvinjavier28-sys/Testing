@@ -10,7 +10,7 @@
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-const TO_EMAIL = process.env.LEAD_TO_EMAIL;
+const TO_EMAIL = process.env.LEAD_TO_EMAIL || 'support@nationalepayment.com';
 // Partner/ISO inquiries route to a role inbox (overridable via env).
 const PARTNER_TO_EMAIL = process.env.PARTNER_TO_EMAIL || 'support@nationalepayment.com';
 const FROM_EMAIL = process.env.LEAD_FROM_EMAIL || 'National e-Payment <onboarding@resend.dev>';
