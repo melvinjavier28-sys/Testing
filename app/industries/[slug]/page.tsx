@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Hero from '@/src/components/sections/Hero';
 import Container from '@/src/components/common/Container';
 import Section from '@/src/components/common/Section';
@@ -8,6 +9,16 @@ import CTASection from '@/src/components/sections/CTASection';
 import { getIndustry, getAllIndustrySlugs } from '@/src/lib/industries';
 import { getProductsForHomepage } from '@/src/lib/products';
 import { notFound } from 'next/navigation';
+
+// Real business-owner photo per industry — shown as a visible feature, not a backdrop.
+const ownerPhotos: Record<string, string> = {
+  restaurants: '/people/owner-restaurant.jpg',
+  retail: '/people/owner-retail.jpg',
+  grocery: '/people/owner-grocery.jpg',
+  'gas-stations': '/people/owner-gas.jpg',
+  lodging: '/people/owner-lodging.jpg',
+  ecommerce: '/people/owner-ecommerce.jpg',
+};
 
 export async function generateStaticParams() {
   return getAllIndustrySlugs().map((slug) => ({
@@ -38,6 +49,8 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
     industry.recommendedProducts.includes(prod.id)
   );
 
+  const ownerPhoto = ownerPhotos[slug];
+
   return (
     <>
       <Hero
@@ -47,6 +60,47 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         ctaHref="/signup"
         backdrop={slug}
       />
+
+      {/* Real business owner — people-first feature */}
+      {ownerPhoto && (
+        <Section background="white">
+          <Container>
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+              <div className="relative">
+                <div className="overflow-hidden rounded-3xl shadow-[0_30px_60px_-20px_rgba(15,58,95,0.4)]">
+                  <Image
+                    src={ownerPhoto}
+                    alt={`A ${industry.title.toLowerCase()} business owner`}
+                    width={900}
+                    height={680}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                {/* Floating support badge for polish */}
+                <div className="absolute -bottom-5 -right-3 hidden rounded-2xl border border-gray-100 bg-white px-5 py-3 shadow-xl sm:block">
+                  <div className="font-display text-2xl font-bold text-forest">24/7</div>
+                  <div className="text-[11px] font-medium uppercase tracking-wide text-muted">Live support</div>
+                </div>
+              </div>
+
+              <div>
+                <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-forest">
+                  <span aria-hidden="true" className="h-[2px] w-6 rounded-full bg-lime" />
+                  Built around your business
+                </span>
+                <h2 className="mb-4 text-3xl font-bold leading-tight text-navy md:text-4xl">
+                  Payments that keep up with how you actually run
+                </h2>
+                <p className="mb-7 text-lg leading-relaxed text-slate">
+                  From the first sale to the busiest rush, we keep your payments fast, reliable,
+                  and affordable — backed by real people you can reach any time, day or night.
+                </p>
+                <Button href="/signup">Get Started Free</Button>
+              </div>
+            </div>
+          </Container>
+        </Section>
+      )}
 
       {/* Pain Points & Solutions */}
       <Section background="light">

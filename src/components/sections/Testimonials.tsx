@@ -2,17 +2,15 @@ import SectionHeading from '@/src/components/common/SectionHeading';
 import RevealSection from '@/src/components/common/RevealSection';
 import Container from '@/src/components/common/Container';
 import SectionDecor from '@/src/components/common/SectionDecor';
+import Image from 'next/image';
 import { Quote, Star } from 'lucide-react';
-
-type AvatarColor = 'bg-navy' | 'bg-navy-light' | 'bg-teal-dark';
 
 interface Testimonial {
   quote: string;
   name: string;
   role: string;
   location: string;
-  initials: string;
-  color: AvatarColor;
+  photo: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -22,8 +20,7 @@ const testimonials: Testimonial[] = [
     name: 'Carlos Mendez',
     role: 'Restaurant Owner',
     location: 'Queens, NY',
-    initials: 'CM',
-    color: 'bg-navy',
+    photo: '/people/portrait-man-1.jpg',
   },
   {
     quote:
@@ -31,8 +28,7 @@ const testimonials: Testimonial[] = [
     name: 'Jennifer Torres',
     role: 'Grocery Store Owner',
     location: 'Brooklyn, NY',
-    initials: 'JT',
-    color: 'bg-navy-light',
+    photo: '/people/portrait-woman-1.jpg',
   },
   {
     quote:
@@ -40,8 +36,7 @@ const testimonials: Testimonial[] = [
     name: 'David Rosner',
     role: 'Gas Station Owner',
     location: 'Long Island City, NY',
-    initials: 'DR',
-    color: 'bg-teal-dark',
+    photo: '/people/portrait-man-2.jpg',
   },
 ];
 
@@ -68,7 +63,7 @@ export default function Testimonials() {
         </RevealSection>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
-          {testimonials.map(({ quote, name, role, location, initials, color }, i) => (
+          {testimonials.map(({ quote, name, role, location, photo }, i) => (
             <RevealSection key={name} delay={i * 100}>
               <figure className="card-lift border-glow group relative flex h-full flex-col rounded-card border border-gray-200/80 bg-white p-7">
                 {/* Stars */}
@@ -87,12 +82,13 @@ export default function Testimonials() {
 
                 {/* Attribution */}
                 <figcaption className="flex items-center gap-3">
-                  <div
-                    className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ${color}`}
-                    aria-hidden="true"
-                  >
-                    {initials}
-                  </div>
+                  <Image
+                    src={photo}
+                    alt={name}
+                    width={48}
+                    height={48}
+                    className="h-12 w-12 flex-shrink-0 rounded-full object-cover object-top ring-2 ring-lime/30"
+                  />
                   <div>
                     <p className="text-sm font-bold text-navy">{name}</p>
                     <p className="mt-0.5 text-xs text-muted">{role} · {location}</p>

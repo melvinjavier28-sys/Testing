@@ -50,7 +50,7 @@ const products = [
   { name: 'Mobile Pay',         href: '/products#pax',      desc: 'PAX A920 · Clover Go · Valor RCKT', Icon: Smartphone },
   { name: 'Wireless Terminals', href: '/products#pax',      desc: 'PAX · Ingenico · Verifone',         Icon: Wifi },
   { name: 'PIN Pads',           href: '/products#verifone', desc: 'Valor · PAX A35 · Verifone M400',   Icon: CreditCard },
-  { name: 'Duo Pricer',         href: '/products',          desc: 'Our in-house dual-pricing labeler', Icon: Tag },
+  { name: 'Duo Pricer',         href: '/products',          desc: 'New dual-pricing labeler available', Icon: Tag },
 ];
 
 const differentiators = [
@@ -94,6 +94,9 @@ const industryScatter = [
   { src: '/hero/industries/hotel.jpg', className: 'bottom-[6%] right-[10%] h-52 w-64' },
   { src: '/hero/industries/retail.jpg', className: 'top-[14%] left-[40%] h-48 w-60' },
   { src: '/hero/industries/ecommerce.jpg', className: '-top-10 right-[26%] h-44 w-56' },
+  // faded people transacting, mixed among the locations
+  { src: '/hero/industries/restaurant-pos.jpg', className: 'top-[46%] left-[20%] h-44 w-56' },
+  { src: '/hero/industries/hotel-pos.jpg', className: 'bottom-[4%] right-[34%] h-44 w-56' },
 ];
 
 // Floating hardware silhouettes for the Products / "Hardware & Software" section.
@@ -105,6 +108,8 @@ const productScatter = [
   { src: '/products/valor/rckt.png', className: 'top-[18%] left-[2%] h-40 w-40', fit: 'contain' as const },
   { src: '/products/pax/a800.png', className: 'top-[52%] right-[34%] h-40 w-40', fit: 'contain' as const },
   { src: '/products/valor/vp300.png', className: '-bottom-6 left-[36%] h-44 w-44', fit: 'contain' as const },
+  // a faded person actually using a terminal, among the hardware
+  { src: '/hero/industries/retail-pos.jpg', className: 'top-[60%] left-[22%] h-44 w-56', fit: 'cover' as const },
 ];
 
 /* ── Page ───────────────────────────────────────────────── */
@@ -326,6 +331,52 @@ export default function Home() {
                 </div>
               </RevealSection>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Real people behind it ─────────────────────────── */}
+      <section className="relative overflow-hidden bg-surface py-20 md:py-24">
+        <SectionDecor glow="both" />
+        <Container className="relative z-10">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            <RevealSection className="relative">
+              <div className="overflow-hidden rounded-3xl shadow-[0_30px_60px_-20px_rgba(15,58,95,0.45)]">
+                <Image
+                  src="/people/hero-lifestyle.jpg"
+                  alt="A small-business owner in their shop"
+                  width={900}
+                  height={760}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-5 -right-3 hidden rounded-2xl border border-gray-100 bg-white px-5 py-3 shadow-xl sm:block">
+                <div className="font-display text-2xl font-bold text-forest">10,000+</div>
+                <div className="text-[11px] font-medium uppercase tracking-wide text-muted">Merchants served</div>
+              </div>
+            </RevealSection>
+
+            <RevealSection delay={100}>
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-forest">
+                <span aria-hidden="true" className="h-[2px] w-6 rounded-full bg-lime" />
+                People, not call centers
+              </span>
+              <h2 className="mb-4 text-3xl font-bold leading-tight text-navy md:text-4xl">
+                Real people who actually pick up the phone
+              </h2>
+              <p className="mb-7 text-lg leading-relaxed text-slate">
+                Behind every account is a dedicated team that knows your business by name. When a
+                terminal goes down or a question comes up, you reach a real person — not a ticket
+                queue — any time, day or night.
+              </p>
+              <a
+                href="/company"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-forest px-8 py-3 font-semibold text-forest transition-colors hover:bg-forest hover:text-white"
+              >
+                Meet National e-Payment
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </RevealSection>
           </div>
         </Container>
       </section>

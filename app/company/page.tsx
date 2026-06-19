@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Hero from '@/src/components/sections/Hero';
 import Container from '@/src/components/common/Container';
 import Section from '@/src/components/common/Section';
@@ -9,12 +10,6 @@ export const metadata = {
   description: 'Learn about National e-Payment and our mission to serve businesses.',
 };
 
-const teamScatter = [
-  { src: '/hero/industries/team.jpg', className: '-top-12 right-[6%] h-56 w-72' },
-  { src: '/hero/industries/support.jpg', className: 'top-[26%] -left-12 h-56 w-72' },
-  { src: '/hero/industries/partners.jpg', className: '-bottom-12 right-[18%] h-52 w-64' },
-];
-
 export default function CompanyPage() {
   return (
     <>
@@ -24,18 +19,29 @@ export default function CompanyPage() {
         backdrop="company"
       />
 
-      <Section background="white" dots scatter={teamScatter} scatterOpacity={0.09}>
+      <Section background="white" dots glow="both">
         <Container>
-          <div className="max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold text-navy mb-6">Our Mission</h2>
-            <p className="text-lg text-gray-600 mb-4">
-              At National e-Payment, we believe payment processing should be simple, reliable, and affordable.
-              We're committed to providing businesses with payment solutions that grow with them.
-            </p>
-            <p className="text-lg text-gray-600">
-              Since our founding, we've processed billions in transactions for thousands of merchants across
-              every industry. We're trusted by startups and enterprises alike.
-            </p>
+          <div className="mb-12 grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            <div>
+              <h2 className="text-3xl font-bold text-navy mb-6">Our Mission</h2>
+              <p className="text-lg text-gray-600 mb-4">
+                At National e-Payment, we believe payment processing should be simple, reliable, and affordable.
+                We're committed to providing businesses with payment solutions that grow with them.
+              </p>
+              <p className="text-lg text-gray-600">
+                Since our founding, we've processed billions in transactions for thousands of merchants across
+                every industry. We're trusted by startups and enterprises alike.
+              </p>
+            </div>
+            <div className="overflow-hidden rounded-3xl shadow-[0_30px_60px_-20px_rgba(15,58,95,0.4)]">
+              <Image
+                src="/hero/industries/team.jpg"
+                alt="The National e-Payment team"
+                width={900}
+                height={680}
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">

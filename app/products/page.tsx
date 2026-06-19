@@ -17,6 +17,8 @@ const whereScatter = [
   { src: '/hero/industries/retail.jpg', className: 'top-[20%] -right-12 h-56 w-72' },
   { src: '/hero/industries/grocery.jpg', className: '-bottom-10 left-[30%] h-52 w-64' },
   { src: '/hero/industries/gas-station.jpg', className: 'bottom-[8%] right-[8%] h-48 w-60' },
+  // a faded customer paying, among the locations
+  { src: '/hero/industries/retail-pos.jpg', className: 'top-[44%] left-[40%] h-44 w-56' },
 ];
 
 export const metadata = {
@@ -64,7 +66,7 @@ export default function ProductsPage() {
         </Container>
       </section>
 
-      {/* Featured in-house product */}
+      {/* Featured new product */}
       <FeaturedDuoPricer />
 
       {/* Brand sections */}

@@ -1,13 +1,23 @@
+import Image from 'next/image';
 import Hero from '@/src/components/sections/Hero';
 import Container from '@/src/components/common/Container';
 import Section from '@/src/components/common/Section';
 import Card from '@/src/components/common/Card';
+import Button from '@/src/components/common/Button';
 import CTASection from '@/src/components/sections/CTASection';
+import { Fuel } from 'lucide-react';
 
 export const metadata = {
   title: 'Gas Stations & Convenience Stores | National e-Payment',
   description: 'Payment solutions built for gas stations and convenience stores — pay-at-pump, fleet cards, loyalty programs, and 24/7 support.',
 };
+
+// Faded people-in-action + scenes for ambient life on this page.
+const gasScatter = [
+  { src: '/hero/industries/gas-station.jpg', className: '-top-12 right-[6%] h-56 w-72' },
+  { src: '/hero/industries/gas-fueling.jpg', className: 'top-[28%] -left-12 h-56 w-72' },
+  { src: '/hero/industries/gas-cstore-bright.jpg', className: '-bottom-12 right-[20%] h-52 w-64' },
+];
 
 export default function GasStationsPage() {
   return (
@@ -20,25 +30,68 @@ export default function GasStationsPage() {
         backdrop="gas-stations"
       />
 
+      {/* Fuel-retail feature — visible, people/place-forward */}
       <Section background="white">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Gas stations and convenience stores have always been at the forefront of adopting payment technology
-              because speed and customer loyalty are among your top concerns. Today, many customers never even
-              talk to a cashier or attendant, and point-of-sale technology is becoming increasingly more complex.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              National e-Payment understands the unique demands of fuel retail. We deliver payment solutions
-              that keep lines moving, reduce fraud, and build customer loyalty — with 24/7 support so you&apos;re
-              never left stranded.
-            </p>
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* Layered two-photo composition: fuel pump + convenience store */}
+            <div className="relative">
+              <div className="aspect-[4/5] w-[82%] overflow-hidden rounded-3xl shadow-[0_30px_60px_-20px_rgba(15,58,95,0.45)]">
+                <Image
+                  src="/hero/industries/gas-pump.jpg"
+                  alt="A modern Sunoco fuel pump at golden hour"
+                  width={760}
+                  height={950}
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+              <div className="absolute bottom-0 right-0 w-[52%] overflow-hidden rounded-2xl ring-4 ring-white shadow-[0_24px_48px_-16px_rgba(15,58,95,0.5)]">
+                <div className="aspect-[4/5]">
+                  <Image
+                    src="/hero/industries/gas-store.jpg"
+                    alt="A customer in a convenience store"
+                    width={520}
+                    height={650}
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+              </div>
+              {/* Floating fuel-retail badge */}
+              <div className="absolute -top-4 -left-3 hidden items-center gap-3 rounded-2xl border border-gray-100 bg-white px-5 py-3 shadow-xl sm:flex">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-forest/10 text-forest">
+                  <Fuel className="h-5 w-5" strokeWidth={1.8} />
+                </span>
+                <div>
+                  <div className="text-sm font-bold text-navy">Pump + counter</div>
+                  <div className="text-[11px] text-muted">One payments partner</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-forest">
+                <span aria-hidden="true" className="h-[2px] w-6 rounded-full bg-lime" />
+                Built for fuel &amp; convenience
+              </span>
+              <h2 className="mb-4 text-3xl font-bold leading-tight text-navy md:text-4xl">
+                From the pump to the aisle, keep everything moving
+              </h2>
+              <p className="mb-4 text-lg leading-relaxed text-slate">
+                Speed and loyalty are your top concerns — and ours too. Whether customers are paying at the pump
+                or grabbing snacks at the counter, your payment tech has to be fast, reliable, and seamless.
+              </p>
+              <p className="mb-7 text-lg leading-relaxed text-slate">
+                We understand fuel and convenience retail — keeping lines moving, reducing fraud, and building
+                loyalty, with 24/7 support so you&apos;re never left stranded.
+              </p>
+              <Button href="/signup">Get Started Free</Button>
+            </div>
           </div>
         </Container>
       </Section>
 
       {/* Pain points & solutions */}
-      <Section background="light">
+      <Section background="light" scatter={gasScatter} scatterOpacity={0.08}>
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>

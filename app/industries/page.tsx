@@ -17,6 +17,9 @@ const locationScatter = [
   { src: '/hero/industries/hotel.jpg', className: 'bottom-[8%] right-[10%] h-52 w-64' },
   { src: '/hero/industries/retail.jpg', className: 'top-[16%] left-[42%] h-48 w-60' },
   { src: '/hero/industries/ecommerce.jpg', className: '-top-10 right-[28%] h-44 w-56' },
+  // faded people being served, mixed in
+  { src: '/hero/industries/retail-pos.jpg', className: 'top-[48%] left-[22%] h-44 w-56' },
+  { src: '/hero/industries/grocery-pos.jpg', className: 'bottom-[6%] right-[36%] h-44 w-56' },
 ];
 
 export default function IndustriesPage() {

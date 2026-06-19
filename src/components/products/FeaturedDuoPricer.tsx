@@ -33,7 +33,7 @@ export default function FeaturedDuoPricer() {
           {/* Copy */}
           <div>
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-lime/25 bg-lime/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-lime">
-              <Sparkles className="h-3.5 w-3.5" /> Designed in-house · National e-Payment
+              <Sparkles className="h-3.5 w-3.5" /> New product available
             </span>
 
             <h2 className="mb-3 text-4xl font-bold leading-[1.05] md:text-5xl">
@@ -42,7 +42,7 @@ export default function FeaturedDuoPricer() {
             </h2>
 
             <p className="mb-6 max-w-lg text-lg leading-relaxed text-white/70">
-              Our own dual-pricing label device. Print cash-and-card prices on a single
+              A dual-pricing label device. Print cash-and-card prices on a single
               label in seconds — it does the math for you, so your shelf prices stay
               accurate and compliant.
             </p>
