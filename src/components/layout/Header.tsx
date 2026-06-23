@@ -38,7 +38,6 @@ const navItems: NavItem[] = [
       { label: 'Mobile Pay Products',   href: '/products#pax' },
       { label: 'Wireless Terminals',    href: '/products#pax' },
       { label: 'PIN Pads',              href: '/products#verifone' },
-      { label: 'Duo Pricer',            href: '/products' },
     ],
   },
   { label: 'Rates & Fees',  href: '/rates-fees' },

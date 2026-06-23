@@ -89,7 +89,6 @@ export default function Footer() {
                 ['Mobile Pay Products', '/products#pax'],
                 ['Wireless Terminals', '/products#pax'],
                 ['PIN Pads', '/products#verifone'],
-                ['Duo Pricer', '/products'],
               ].map(([label, href]) => (
                 <li key={label}>
                   <a href={href} className="link-underline text-white/55 hover:text-lime transition-colors">{label}</a>
