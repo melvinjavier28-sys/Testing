@@ -33,15 +33,15 @@ import {
 
 /* ── Data ───────────────────────────────────────────────── */
 const industries = [
-  { title: 'Grocery & Supermarkets',           href: '/industries/grocery',   Icon: ShoppingCart },
-  { title: 'Full-Service Restaurants',          href: '/industries/restaurants', Icon: UtensilsCrossed },
-  { title: 'E-Commerce & Internet',             href: '/industries/ecommerce', Icon: Globe },
-  { title: 'Retail Stores',                     href: '/industries/retail',    Icon: Store },
-  { title: 'Gas Stations & C-Stores',           href: '/gas-stations-convenience-stores', Icon: Fuel },
-  { title: 'Quick-Service Restaurants',         href: '/industries/restaurants', Icon: UtensilsCrossed },
-  { title: 'Lodging & Hospitality',             href: '/industries/lodging',   Icon: Hotel },
-  { title: 'Gift Card Services',                href: '/products/gift-cards',  Icon: Gift },
-  { title: 'Check & ACH Processing',            href: '/products/check-processing', Icon: FileCheck },
+  { title: 'Grocery & Supermarkets',           href: '/industries/grocery',   Icon: ShoppingCart,   image: '/industries-people/grocery.jpg' },
+  { title: 'Full-Service Restaurants',          href: '/industries/restaurants', Icon: UtensilsCrossed, image: '/industries-people/restaurants.jpg' },
+  { title: 'E-Commerce & Internet',             href: '/industries/ecommerce', Icon: Globe,          image: '/industries-people/ecommerce.jpg' },
+  { title: 'Retail Stores',                     href: '/industries/retail',    Icon: Store,          image: '/industries-people/retail.jpg' },
+  { title: 'Gas Stations & C-Stores',           href: '/gas-stations-convenience-stores', Icon: Fuel, image: '/industries-people/gas.jpg' },
+  { title: 'Quick-Service Restaurants',         href: '/industries/restaurants', Icon: UtensilsCrossed, image: '/industries-people/qsr.jpg' },
+  { title: 'Lodging & Hospitality',             href: '/industries/lodging',   Icon: Hotel,          image: '/industries-people/lodging.jpg' },
+  { title: 'Gift Card Services',                href: '/products/gift-cards',  Icon: Gift,           image: '/industries-people/giftcards.jpg' },
+  { title: 'Check & ACH Processing',            href: '/products/check-processing', Icon: FileCheck,  image: '/industries-people/check-ach.jpg' },
 ];
 
 const products = [
@@ -84,19 +84,6 @@ const valueProps = [
   'Free terminal or software',
   '24/7 customer support',
   'Instant approval decision',
-];
-
-// Ambient location scenes drifting through the Industries section (faded soft blobs).
-const industryScatter = [
-  { src: '/hero/industries/grocery.jpg', className: '-top-12 left-[6%] h-56 w-72' },
-  { src: '/hero/industries/gas-station.jpg', className: 'top-[22%] -right-12 h-60 w-80' },
-  { src: '/hero/industries/restaurant.jpg', className: '-bottom-12 left-[2%] h-56 w-72' },
-  { src: '/hero/industries/hotel.jpg', className: 'bottom-[6%] right-[10%] h-52 w-64' },
-  { src: '/hero/industries/retail.jpg', className: 'top-[14%] left-[40%] h-48 w-60' },
-  { src: '/hero/industries/ecommerce.jpg', className: '-top-10 right-[26%] h-44 w-56' },
-  // faded people transacting, mixed among the locations
-  { src: '/hero/industries/restaurant-pos.jpg', className: 'top-[46%] left-[20%] h-44 w-56' },
-  { src: '/hero/industries/hotel-pos.jpg', className: 'bottom-[4%] right-[34%] h-44 w-56' },
 ];
 
 // Floating hardware silhouettes for the Products / "Hardware & Software" section.
@@ -264,8 +251,7 @@ export default function Home() {
 
       {/* ── Industries ───────────────────────────────────── */}
       <section id="services" className="scroll-mt-24 relative overflow-hidden bg-surface py-20 md:py-24">
-        <SectionDecor dots glow="both" />
-        <ScatterBackdrop tiles={industryScatter} opacity={0.1} />
+        <SectionDecor glow="both" />
         <Container className="relative z-10">
           <RevealSection>
             <SectionHeading
@@ -276,20 +262,31 @@ export default function Home() {
             />
           </RevealSection>
 
-          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 md:grid-cols-3">
-            {industries.map(({ title, href, Icon }, i) => (
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
+            {industries.map(({ title, href, Icon, image }, i) => (
               <RevealSection key={title + i} delay={i * 50}>
                 <a
                   href={href}
-                  className="card-lift border-glow group flex items-center gap-4 rounded-card border border-gray-200/70 bg-white px-5 py-4"
+                  className="card-lift group relative block overflow-hidden rounded-card border border-gray-200/70 bg-navy shadow-sm"
                 >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy/[0.05] transition-colors group-hover:bg-lime/15">
-                    <Icon className="h-5 w-5 text-navy transition-colors group-hover:text-forest" strokeWidth={1.6} />
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={image}
+                      alt={`${title} — a National e-Payment merchant`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {/* Navy gradient anchors the label */}
+                    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-navy via-navy/35 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 p-4">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-lime text-navy shadow">
+                        <Icon className="h-[18px] w-[18px]" strokeWidth={2} />
+                      </span>
+                      <span className="text-[15px] font-bold leading-tight text-white">{title}</span>
+                      <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-white/70 transition-transform group-hover:translate-x-0.5" />
+                    </div>
                   </div>
-                  <span className="text-sm font-semibold leading-tight text-navy transition-colors group-hover:text-forest">
-                    {title}
-                  </span>
-                  <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-gray-300 transition-all group-hover:translate-x-0.5 group-hover:text-forest" />
                 </a>
               </RevealSection>
             ))}
