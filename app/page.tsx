@@ -6,7 +6,6 @@ import AnimatedCounter from '@/src/components/common/AnimatedCounter';
 import Testimonials from '@/src/components/sections/Testimonials';
 import DiagonalCut from '@/src/components/common/DiagonalCut';
 import SectionDecor from '@/src/components/common/SectionDecor';
-import ScatterBackdrop from '@/src/components/common/ScatterBackdrop';
 import SectionHeading from '@/src/components/common/SectionHeading';
 import Marquee from '@/src/components/common/Marquee';
 import PaymentVisual from '@/src/components/sections/PaymentVisual';
@@ -45,12 +44,12 @@ const industries = [
 ];
 
 const products = [
-  { name: 'Smart Terminals',    href: '/products#valor',    desc: 'Valor · Clover · PAX · Ingenico',   Icon: CreditCard },
-  { name: 'POS Systems',        href: '/products#clover',   desc: 'Clover Station, Mini, Flex & more', Icon: Store },
-  { name: 'Mobile Pay',         href: '/products#pax',      desc: 'PAX A920 · Clover Go · Valor RCKT', Icon: Smartphone },
-  { name: 'Wireless Terminals', href: '/products#pax',      desc: 'PAX · Ingenico · Verifone',         Icon: Wifi },
-  { name: 'PIN Pads',           href: '/products#verifone', desc: 'Valor · PAX A35 · Verifone M400',   Icon: CreditCard },
-  { name: 'Duo Pricer',         href: '/products',          desc: 'New dual-pricing labeler available', Icon: Tag },
+  { name: 'Smart Terminals',    href: '/products#valor',    desc: 'Valor · Clover · PAX · Ingenico',   Icon: CreditCard, image: '/products/valor/vp800.png' },
+  { name: 'POS Systems',        href: '/products#clover',   desc: 'Clover Station, Mini, Flex & more', Icon: Store,      image: '/products/clover/station-duo.webp' },
+  { name: 'Mobile Pay',         href: '/products#pax',      desc: 'PAX A920 · Clover Go · Valor RCKT', Icon: Smartphone, image: '/products/pax/a920-max.png' },
+  { name: 'Wireless Terminals', href: '/products#pax',      desc: 'PAX · Ingenico · Verifone',         Icon: Wifi,       image: '/products/valor/vl110.png' },
+  { name: 'PIN Pads',           href: '/products#verifone', desc: 'Valor · PAX A35 · Verifone M400',   Icon: CreditCard, image: '/products/pax/a35.png' },
+  { name: 'Duo Pricer',         href: '/products',          desc: 'New dual-pricing labeler available', Icon: Tag,       image: '/products/duopricer.png' },
 ];
 
 const differentiators = [
@@ -84,19 +83,6 @@ const valueProps = [
   'Free terminal or software',
   '24/7 customer support',
   'Instant approval decision',
-];
-
-// Floating hardware silhouettes for the Products / "Hardware & Software" section.
-const productScatter = [
-  { src: '/products/pax/a920-max.png', className: '-top-8 right-[22%] h-48 w-48', fit: 'contain' as const },
-  { src: '/products/clover/go.png', className: 'top-[30%] -right-10 h-52 w-52', fit: 'contain' as const },
-  { src: '/products/valor/vp550.png', className: '-bottom-8 right-[12%] h-48 w-48', fit: 'contain' as const },
-  { src: '/products/pax/a80.png', className: 'bottom-[2%] left-[6%] h-44 w-44', fit: 'contain' as const },
-  { src: '/products/valor/rckt.png', className: 'top-[18%] left-[2%] h-40 w-40', fit: 'contain' as const },
-  { src: '/products/pax/a800.png', className: 'top-[52%] right-[34%] h-40 w-40', fit: 'contain' as const },
-  { src: '/products/valor/vp300.png', className: '-bottom-6 left-[36%] h-44 w-44', fit: 'contain' as const },
-  // a faded person actually using a terminal, among the hardware
-  { src: '/hero/industries/retail-pos.jpg', className: 'top-[60%] left-[22%] h-44 w-56', fit: 'cover' as const },
 ];
 
 /* ── Page ───────────────────────────────────────────────── */
@@ -384,7 +370,6 @@ export default function Home() {
       {/* ── Products ─────────────────────────────────────── */}
       <section id="products" className="relative overflow-hidden bg-white py-20 md:py-24">
         <SectionDecor glow="navy" />
-        <ScatterBackdrop tiles={productScatter} opacity={0.14} />
         <Container className="relative z-10">
           <RevealSection>
             <SectionHeading
@@ -396,20 +381,33 @@ export default function Home() {
           </RevealSection>
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {products.map(({ name, href, desc, Icon }, i) => (
+            {products.map(({ name, href, desc, Icon, image }, i) => (
               <RevealSection key={name} delay={i * 60}>
                 <a
                   href={href}
-                  className="card-lift border-glow group flex h-full gap-4 rounded-card border border-gray-200/70 bg-surface p-6"
+                  className="card-lift group flex h-full flex-col overflow-hidden rounded-card border border-gray-200/70 bg-white shadow-sm"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-navy transition-colors group-hover:bg-forest">
-                    <Icon className="h-5 w-5 text-lime" strokeWidth={1.6} />
+                  {/* Product shot on a light panel */}
+                  <div className="relative aspect-[5/4] bg-surface">
+                    <Image
+                      src={image}
+                      alt={name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <h3 className="mb-1 font-bold text-navy transition-colors group-hover:text-forest">{name}</h3>
-                    <p className="text-xs leading-relaxed text-muted">{desc}</p>
+                  {/* Navy label bar */}
+                  <div className="flex items-center gap-3 bg-navy p-4">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-lime text-navy shadow">
+                      <Icon className="h-[18px] w-[18px]" strokeWidth={2} />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-[15px] font-bold leading-tight text-white">{name}</div>
+                      <div className="mt-0.5 truncate text-xs text-white/55">{desc}</div>
+                    </div>
+                    <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-white/70 transition-transform group-hover:translate-x-0.5" />
                   </div>
-                  <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-gray-300 transition-all group-hover:translate-x-0.5 group-hover:text-forest" />
                 </a>
               </RevealSection>
             ))}
