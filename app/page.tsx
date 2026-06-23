@@ -8,7 +8,6 @@ import DiagonalCut from '@/src/components/common/DiagonalCut';
 import SectionDecor from '@/src/components/common/SectionDecor';
 import SectionHeading from '@/src/components/common/SectionHeading';
 import Marquee from '@/src/components/common/Marquee';
-import PaymentVisual from '@/src/components/sections/PaymentVisual';
 import {
   ShoppingCart,
   UtensilsCrossed,
@@ -89,27 +88,59 @@ export default function Home() {
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="premium-hero relative overflow-hidden text-white">
-        {/* Faded transaction collage — English scenes, VP800 behind the logo */}
-        <div aria-hidden="true" className="absolute inset-0 opacity-[0.32]">
+        <style>{`
+          @keyframes nepRoll {
+            0%,12% { transform: translateY(0); }
+            16.6%,28% { transform: translateY(-1.2em); }
+            33.3%,45% { transform: translateY(-2.4em); }
+            50%,62% { transform: translateY(-3.6em); }
+            66.6%,78% { transform: translateY(-4.8em); }
+            83.3%,96% { transform: translateY(-6em); }
+            100% { transform: translateY(0); }
+          }
+          .nep-roll { animation: nepRoll 12s infinite; }
+          @media (prefers-reduced-motion: reduce) { .nep-roll { animation: none; transform: translateY(-6em); } }
+        `}</style>
+        {/* Faded transaction collage — restores the original photo depth behind the type */}
+        <div aria-hidden="true" className="absolute inset-0 opacity-[0.30]">
           <div className="grid h-full grid-cols-1 sm:grid-cols-3">
             <div className="relative hidden sm:block">
-              <Image src="/hero/transaction.jpg" alt="" fill sizes="34vw" className="object-cover grayscale" />
+              <Image src="/hero/merchant-payment.jpg" alt="" fill sizes="(max-width: 768px) 50vw, 34vw" className="object-cover grayscale" />
             </div>
             <div className="relative">
-              <Image src="/hero/valor-vp800.png" alt="" fill sizes="34vw" className="object-contain object-center grayscale" priority />
+              <Image src="/hero/valor-vp800.png" alt="" fill sizes="(max-width: 768px) 100vw, 34vw" className="object-contain object-center grayscale" priority />
             </div>
             <div className="relative hidden sm:block">
-              <Image src="/hero/store-en.jpg" alt="" fill sizes="34vw" className="object-cover grayscale" />
+              <Image src="/hero/store-en.jpg" alt="" fill sizes="(max-width: 768px) 50vw, 34vw" className="object-cover grayscale" />
             </div>
           </div>
         </div>
         {/* Navy scrim keeps the copy crisp over the photos */}
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-navy-950/55 via-navy-900/55 to-navy-950/85" />
-        {/* Aurora blobs */}
-        <div aria-hidden="true" className="aurora-blob animate-aurora -left-20 top-0 h-80 w-80" style={{ background: 'rgba(159,232,112,0.28)' }} />
-        <div aria-hidden="true" className="aurora-blob animate-aurora right-0 top-24 h-96 w-96" style={{ background: 'rgba(36,123,184,0.35)', animationDuration: '24s' }} />
-        {/* Grid texture */}
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-navy-950/60 via-navy-900/58 to-navy-950/88" />
+
+        {/* Layered aurora + grid over the photo */}
+        <div aria-hidden="true" className="aurora-blob animate-aurora -left-20 top-0 h-80 w-80" style={{ background: 'rgba(159,232,112,0.22)' }} />
+        <div aria-hidden="true" className="aurora-blob animate-aurora right-0 top-24 h-96 w-96" style={{ background: 'rgba(36,123,184,0.30)', animationDuration: '24s' }} />
+        <div aria-hidden="true" className="aurora-blob animate-aurora bottom-0 left-1/3 h-72 w-72" style={{ background: 'rgba(159,232,112,0.13)', animationDuration: '30s' }} />
         <div aria-hidden="true" className="hero-grid absolute inset-0" />
+
+        {/* Ambient live-payment chips floating in the side gutters (desktop only) */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden overflow-hidden lg:block">
+          <div className="animate-float absolute right-[4%] top-[20%] flex items-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.07] px-4 py-2.5 shadow-xl backdrop-blur-sm">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-lime text-navy"><Check className="h-3.5 w-3.5" strokeWidth={3} /></span>
+            <span className="text-sm font-semibold text-white/85">Payment approved</span>
+            <span className="font-display text-sm font-bold text-lime">$128.40</span>
+          </div>
+          <div className="animate-float-slow absolute left-[4%] top-[40%] flex items-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.07] px-4 py-2.5 shadow-xl backdrop-blur-sm">
+            <span className="pulse-dot relative inline-block h-2.5 w-2.5 rounded-full bg-lime" />
+            <span className="text-sm font-semibold text-white/85">Funds depositing next day</span>
+          </div>
+          <div className="animate-float absolute right-[7%] top-[62%] flex items-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.07] px-4 py-2.5 shadow-xl backdrop-blur-sm" style={{ animationDelay: '1.2s' }}>
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-lime text-navy"><Check className="h-3.5 w-3.5" strokeWidth={3} /></span>
+            <span className="text-sm font-semibold text-white/85">Sale approved</span>
+            <span className="font-display text-sm font-bold text-lime">$42.10</span>
+          </div>
+        </div>
 
         <Container>
           <div className="relative pt-8 pb-7 md:pt-10 md:pb-8">
@@ -142,51 +173,63 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Body: copy + animated dashboard side-by-side */}
-            <div className="mt-7 grid grid-cols-1 items-center gap-10 lg:mt-8 lg:grid-cols-2">
-              <div>
-                <h1 className="mb-4 text-[2.3rem] font-bold leading-[1.05] md:text-[2.8rem] lg:text-[3.05rem]">
-                  Payment solutions
-                  <br />
-                  <span className="text-gradient-lime">built for your business</span>
-                </h1>
+            {/* Body: kinetic headline — type-led, centered, no side graphic */}
+            <div className="relative mx-auto mt-8 max-w-3xl text-center">
+              {/* Soft lime spotlight lights the rotating word */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute left-1/2 top-[58%] h-56 w-[36rem] max-w-[92vw] -translate-x-1/2 -translate-y-1/2 rounded-full"
+                style={{ background: 'radial-gradient(circle, rgba(159,232,112,0.20) 0%, rgba(159,232,112,0) 70%)', filter: 'blur(24px)' }}
+              />
+              <h1 className="relative text-[2.3rem] font-bold leading-[1.08] md:text-[2.8rem] lg:text-[3.05rem]">
+                <span className="block">Payment solutions built for</span>
+                <span aria-hidden="true" className="mt-1 flex h-[1.2em] justify-center overflow-hidden">
+                  <span className="nep-roll">
+                    {['restaurants', 'retail', 'gas stations', 'salons', 'e-commerce', 'your business'].map((w) => (
+                      <span key={w} className="block h-[1.2em] leading-[1.2] text-gradient-lime">{w}</span>
+                    ))}
+                  </span>
+                </span>
+                <span className="sr-only">restaurants, retail, gas stations, salons, e-commerce, and your business</span>
+              </h1>
 
-                <p className="mb-6 max-w-lg text-base leading-relaxed text-white/70 md:text-lg">
-                  From credit card processing to gift cards and check processing —
-                  everything your business needs in one trusted, registered ecosystem.
-                </p>
+              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
+                From credit card processing to gift cards and check processing —
+                everything your business needs in one trusted, registered ecosystem.
+              </p>
 
-                <ul className="mb-7 grid max-w-lg grid-cols-2 gap-x-6 gap-y-2.5 text-sm">
-                  {valueProps.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-white/85">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime/20">
-                        <Check className="h-3.5 w-3.5 text-lime" strokeWidth={3} />
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+              <ul className="mx-auto mt-6 flex max-w-2xl flex-wrap justify-center gap-x-5 gap-y-2.5 text-sm">
+                {valueProps.map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-white/85">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime/20">
+                      <Check className="h-3.5 w-3.5 text-lime" strokeWidth={3} />
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
 
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <a
-                    href="/signup"
-                    className="btn-shine relative inline-flex items-center justify-center gap-2 rounded-full bg-lime px-8 py-4 text-base font-bold text-navy shadow-[0_12px_34px_-8px_rgba(159,232,112,0.85)] transition-transform hover:-translate-y-0.5"
-                  >
-                    Get Started Free
-                    <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-                  </a>
-                  <a
-                    href="tel:+18664369022"
-                    className="inline-flex items-center justify-center rounded-full border-2 border-white/20 px-8 py-4 text-base font-semibold text-white transition-colors hover:border-lime hover:bg-lime/10"
-                  >
-                    Call (866) 436-9022
-                  </a>
-                </div>
-              </div>
-
-              {/* Right: animated payment dashboard */}
-              <div className="hidden lg:block">
-                <PaymentVisual />
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <a
+                  href="/signup"
+                  className="btn-shine relative inline-flex items-center justify-center gap-2 rounded-full bg-lime px-8 py-4 text-base font-bold text-navy shadow-[0_12px_34px_-8px_rgba(159,232,112,0.85)] transition-transform hover:-translate-y-0.5"
+                >
+                  Get Started Free
+                  <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                </a>
+                <a
+                  href="/partners#apply"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:border-lime hover:bg-white/15"
+                >
+                  Become a Partner
+                  <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                </a>
+                <a
+                  href="tel:+18664369022"
+                  className="inline-flex items-center justify-center rounded-full border-2 border-white/20 px-8 py-4 text-base font-semibold text-white transition-colors hover:border-lime hover:bg-lime/10"
+                >
+                  Call (866) 436-9022
+                </a>
               </div>
             </div>
           </div>
@@ -378,34 +421,43 @@ export default function Home() {
             />
           </RevealSection>
 
-          <div className="flex flex-wrap justify-center gap-5">
+          {/* Editorial cards — device thumbnail + copy, two side by side */}
+          <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-5">
             {products.map(({ name, href, desc, Icon, image }, i) => (
-              <RevealSection key={name} delay={i * 60} className="w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.834rem)]">
+              <RevealSection key={name} delay={i * 60} className="w-full sm:w-[calc(50%-0.625rem)]">
                 <a
                   href={href}
-                  className="card-lift group flex h-full flex-col overflow-hidden rounded-card border border-gray-200/70 bg-white shadow-sm"
+                  className="card-lift group flex h-full items-center gap-4 rounded-card border border-white/10 bg-gradient-to-t from-navy-950 via-navy to-navy-light p-4 shadow-sm sm:gap-5 sm:p-5"
                 >
-                  {/* Product shot on a light panel */}
-                  <div className="relative aspect-[5/4] bg-surface">
+                  {/* Thumbnail stage — spotlit device on a light inset tile */}
+                  <div className="relative h-24 w-28 shrink-0 overflow-hidden rounded-2xl bg-gradient-to-b from-white to-surface ring-1 ring-white/10 sm:h-28 sm:w-36">
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0"
+                      style={{ background: 'radial-gradient(62% 62% at 50% 45%, rgba(159,232,112,0.18) 0%, rgba(159,232,112,0) 62%)' }}
+                    />
                     <Image
                       src={image}
                       alt={name}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                      sizes="144px"
+                      className="object-contain p-3 drop-shadow-[0_10px_14px_rgba(15,58,95,0.20)] transition-transform duration-500 group-hover:scale-[1.07]"
                     />
                   </div>
-                  {/* Navy label bar */}
-                  <div className="flex items-center gap-3 bg-navy p-4">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-lime text-navy shadow">
-                      <Icon className="h-[18px] w-[18px]" strokeWidth={2} />
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-[15px] font-bold leading-tight text-white">{name}</div>
-                      <div className="mt-0.5 truncate text-xs text-white/55">{desc}</div>
+
+                  {/* Copy */}
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2.5">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-lime text-navy shadow">
+                        <Icon className="h-[18px] w-[18px]" strokeWidth={2} />
+                      </span>
+                      <h3 className="text-base font-bold text-white sm:text-lg">{name}</h3>
                     </div>
-                    <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-white/70 transition-transform group-hover:translate-x-0.5" />
+                    <p className="mt-1.5 text-sm text-white/60">{desc}</p>
                   </div>
+
+                  {/* Action */}
+                  <ArrowRight className="ml-2 h-5 w-5 shrink-0 text-white/70 transition-transform group-hover:translate-x-0.5" />
                 </a>
               </RevealSection>
             ))}

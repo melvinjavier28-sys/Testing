@@ -1,14 +1,16 @@
-import Image from 'next/image';
 import Hero from '@/src/components/sections/Hero';
 import Container from '@/src/components/common/Container';
 import Section from '@/src/components/common/Section';
 import Card from '@/src/components/common/Card';
 import TrustSignals from '@/src/components/sections/TrustSignals';
+import { Landmark } from 'lucide-react';
 
 export const metadata = {
   title: 'About Us | National e-Payment',
   description: 'Learn about National e-Payment and our mission to serve businesses.',
 };
+
+const bankPartners = ['Elavon (U.S. Bancorp)', 'Wells Fargo Bank N.A.', 'Esquire Bank N.A.', 'Commercial Bank of CA'];
 
 export default function CompanyPage() {
   return (
@@ -33,14 +35,34 @@ export default function CompanyPage() {
                 every industry. We're trusted by startups and enterprises alike.
               </p>
             </div>
-            <div className="overflow-hidden rounded-3xl shadow-[0_30px_60px_-20px_rgba(15,58,95,0.4)]">
-              <Image
-                src="/hero/industries/team.jpg"
-                alt="The National e-Payment team"
-                width={900}
-                height={680}
-                className="h-full w-full object-cover"
-              />
+            <div className="premium-hero relative overflow-hidden rounded-3xl border border-white/10 p-8 text-white shadow-[0_30px_60px_-20px_rgba(15,58,95,0.4)] md:p-10">
+              <div aria-hidden="true" className="hero-grid absolute inset-0 opacity-60" />
+              <div className="relative">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-lime">
+                  <span className="pulse-dot relative inline-block h-2 w-2 rounded-full bg-lime" />
+                  Registered MSP / ISO
+                </span>
+                <h3 className="mt-4 font-display text-2xl font-bold leading-snug md:text-[1.7rem]">
+                  Built on <span className="text-gradient-lime">trusted banking</span> relationships
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/65">
+                  We&apos;re a registered MSP/ISO sponsored by some of the most established acquiring
+                  banks in the country — the foundation behind every merchant account we open.
+                </p>
+                <ul className="mt-6 space-y-3">
+                  {bankPartners.map((partner) => (
+                    <li
+                      key={partner}
+                      className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3"
+                    >
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-lime/15 text-lime">
+                        <Landmark className="h-4 w-4" />
+                      </span>
+                      <span className="text-sm font-medium text-white/85">{partner}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
 
