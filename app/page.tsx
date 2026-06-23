@@ -24,7 +24,6 @@ import {
   ChevronDown,
   Check,
   Shield,
-  Tag,
   Clock,
   TrendingDown,
   Smartphone,
@@ -49,7 +48,6 @@ const products = [
   { name: 'Mobile Pay',         href: '/products#pax',      desc: 'PAX A920 · Clover Go · Valor RCKT', Icon: Smartphone, image: '/products/pax/a920-max.png' },
   { name: 'Wireless Terminals', href: '/products#pax',      desc: 'PAX · Ingenico · Verifone',         Icon: Wifi,       image: '/products/valor/vl110.png' },
   { name: 'PIN Pads',           href: '/products#verifone', desc: 'Valor · PAX A35 · Verifone M400',   Icon: CreditCard, image: '/products/pax/a35.png' },
-  { name: 'Duo Pricer',         href: '/products',          desc: 'New dual-pricing labeler available', Icon: Tag,       image: '/products/duopricer.png' },
 ];
 
 const differentiators = [
