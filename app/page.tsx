@@ -378,9 +378,9 @@ export default function Home() {
             />
           </RevealSection>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="flex flex-wrap justify-center gap-5">
             {products.map(({ name, href, desc, Icon, image }, i) => (
-              <RevealSection key={name} delay={i * 60}>
+              <RevealSection key={name} delay={i * 60} className="w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.834rem)]">
                 <a
                   href={href}
                   className="card-lift group flex h-full flex-col overflow-hidden rounded-card border border-gray-200/70 bg-white shadow-sm"
