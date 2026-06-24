@@ -219,14 +219,14 @@ export default function Home() {
                 </a>
                 <a
                   href="/partners#apply"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:border-lime hover:bg-white/15"
+                  className="btn-shine relative inline-flex items-center justify-center gap-2 rounded-full bg-lime px-8 py-4 text-base font-bold text-navy shadow-[0_12px_34px_-8px_rgba(159,232,112,0.85)] transition-transform hover:-translate-y-0.5"
                 >
                   Become a Partner
                   <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
                 </a>
                 <a
                   href="tel:+18664369022"
-                  className="inline-flex items-center justify-center rounded-full border-2 border-white/20 px-8 py-4 text-base font-semibold text-white transition-colors hover:border-lime hover:bg-lime/10"
+                  className="btn-shine relative inline-flex items-center justify-center gap-2 rounded-full bg-lime px-8 py-4 text-base font-bold text-navy shadow-[0_12px_34px_-8px_rgba(159,232,112,0.85)] transition-transform hover:-translate-y-0.5"
                 >
                   Call (866) 436-9022
                 </a>
